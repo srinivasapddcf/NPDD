@@ -1,0 +1,266 @@
+/* Background and Title Styling */
+.title {
+  background: url(src/assets/img/background_image_red.jpg) no-repeat;
+  min-height: 100vh;
+  background-size: cover;
+}
+
+/* Container Style with Backdrop Filter */
+.container {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.0);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+  top: 0;
+  left: -10%;
+}
+
+/* Form Styling */
+.login_body {
+  position: absolute;
+  inset: 2px;
+  border-radius: 10%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Heading Styling */
+h2 {
+  position: absolute;
+  top: 15px;
+  color: #d31580;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+/* Underline for Username Block */
+.uc {
+  position: absolute;
+  top: 100px;
+  width: 300px;
+  border-top: 1px solid #e8e8e8;
+  text-align: center;
+}
+
+.uc b {
+  position: relative;
+  top: -15px;
+  width: 150px;
+  height: 25px;
+  color: #fff;
+  font-size: 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 50px;
+  display: inline-block;
+  background: #fe3e27;
+}
+
+/* Input Box Styling */
+.inputBox {
+  position: relative;
+  width: 320px;
+  margin-top: 25px;
+}
+
+.login__input::placeholder {
+  color: #fff;
+}
+
+.inputBox input,
+.inputBox select {
+  position: relative;
+  width: 100%;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 1.1em;
+  color: #fff;
+  background: transparent;
+  outline: none;
+  border: 1px solid #e8e8e8;
+  letter-spacing: 0.05em;
+}
+
+select option {
+  color: #28292d;
+}
+
+/* Label Styling */
+.inputBox label {
+  position: absolute;
+  left: 25px;
+  top: 8px;
+  color: #fff;
+  padding: 0 2px;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  transform: translateY(-18px);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+input:invalid + label {
+  transform: translateY(0);
+  background: #ff5b16;
+  z-index: 999;
+}
+
+input:focus {
+  border-color: #26e060;
+}
+
+input:focus + label {
+  color: #fff;
+  transform: translateY(-18px);
+  z-index: 999;
+}
+
+label[for="username"] {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  background: #ff5818;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  border-radius: 60px;
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+  position: relative;
+  top: 40px;
+  width: 320px;
+  color: #28292d;
+  background: linear-gradient(to bottom, #FFF455, #FFC700);
+  padding: 10px;
+  border-radius: 60px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid #FFF455;
+  outline: 3px solid #ffc700;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  outline: 3px solid #ffc700;
+  outline-offset: -6px;
+  letter-spacing: 0.05em;
+}
+
+.bottom-heading{
+ padding-top: 24rem;
+ margin-left: -11rem;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small Devices (Mobile) */
+@media only screen and (max-width: 768px) {
+  .title {
+    background-position: center;
+  }
+
+  .nav-top {
+    display: none;
+  }
+
+  .bottom-heading {
+    display: none;
+  }
+
+  .container {
+    border-radius: 30px;
+    width: 350px;
+    height: 500px;
+    top: 10%;
+    left: 0;
+    backdrop-filter: none;
+  }
+
+
+  .cbn_name {
+    text-align: center;
+    padding-top: 2rem;
+  }
+
+  .scroll-message {
+    /* margin-top: 54%; */
+    position: absolute;
+    bottom: 0;
+  }
+
+  .login-body h2 {
+    color: #fff;
+  }
+
+  /* Underline for Username Block */
+  .uc {
+    border-top: 2px solid #e8e8e8;
+  }
+
+  .uc b {
+    color: #fff;
+    font-size: 16px;
+    border: 2px solid #e8e8e8;
+    background: #fe3e27;
+  }
+
+  .inputBox input,
+  .inputBox select {
+    border: 2px solid #e8e8e8;
+  }
+
+  .inputBox label {
+    color: #fff;
+  }
+}
+
+/* Larger Screens (Tablets and Up) */
+@media (max-width: 1024px) {
+  .container {
+    width: 80%;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+  /* .cbn_name{
+    text-align: center;
+    padding-top: 2rem;
+  }
+  .top-heading{
+    padding-left: 8rem;
+  } */
+
+  .inputBox {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  input[type="submit"] {
+    width: 80%;
+    max-width: 300px;
+    font-size: 19px;
+  }
+
+  .uc {
+    width: 80%;
+  }
+  .scroll-message {
+    /* margin-top: 51%; */
+    position: absolute;
+    bottom: 0;
+  }
+}

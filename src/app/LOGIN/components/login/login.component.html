@@ -1,0 +1,134 @@
+<div class="title">
+  <div class="container-fluid">
+    <div class="nav-top ps-5 pt-3">
+      <a href="#">
+        <img src="./assets/img/ap-logo.png" alt="" height="120" width="120">
+      </a>
+    </div>
+    <div class="login">
+      <div class="row">
+        <!-- Empty Column for Layout Spacing -->
+        <div class="col-lg-4 col-sm-12 col-md-12"></div>
+
+        <div class="col-lg-4 col-sm-12 col-md-12" style="display: flex; justify-content:center;">
+          <div class="cbn_name text-white">
+            <div class="top-heading">
+              <h3>National Programme for
+                <br> Dairy Development (NPDD)</h3>
+            </div>
+            <div class="text-center bottom-heading">
+              <h4>Sri Nara Chandrababu Naidu</h4>
+              <h6>Honorable Chief Minister <br>Government Of Andhra Pradesh</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-12 col-md-12">
+          <div class="container">
+            <div class="login_body" autocomplete="off">
+              <h2 class="text-white">Sign In</h2>
+              <div class="uc text-white"><b>APDDCFL</b></div>
+
+              <div class="inputBox">
+                <select name="" id=""
+                  [(ngModel)]="tempLoginType"
+                  (change)="loginTypeChange()">
+                  <option value="0" selected>Select Department</option>
+                  <option value="60">Accounts Department</option>
+                  <option value="10">Admin</option>
+                  <option value="40">Civil Department</option>
+                  <option value="80">District Incharge</option>
+                  <option value="50">Mechanical Department</option>
+                  <option value="20">Projects</option>
+                  <option value="30">Quality Department</option>
+                  <option value="70">Vendors</option>
+                </select>
+              </div>
+
+              <div class="inputBox">
+                <input type="text" required
+                  maxlength="15"
+                  [(ngModel)]="username"
+                  autocomplete="off">
+                <label for="username">Username</label>
+              </div>
+
+              <!-- <div class="inputBox">
+                <input type="password" maxlength="15"
+                  [(ngModel)]="password"
+                  autocomplete="off" required>
+                <label for="username">Enter Password</label>
+              </div> -->
+
+              <div class="inputBox">
+                <input 
+                  type="{{ passwordVisible ? 'text' : 'password' }}" 
+                  maxlength="15"
+                  [(ngModel)]="password"
+                  autocomplete="off"
+                  required
+                >
+                <label for="username">Password</label>
+              
+                <!-- Eye icon to toggle password visibility -->
+                <i 
+                  class="fas text-white" 
+                  [class.fa-eye-slash]="!passwordVisible" 
+                  [class.fa-eye]="passwordVisible" 
+                  (click)="togglePasswordVisibility()"
+                  style="cursor: pointer; position: absolute; right: 10px; top: 15px;"
+                ></i>
+              </div>
+              
+              <div class="inputBox">
+                <div class="row">
+                  <div class="col-4">
+                    <div class="captchimg">
+                      <img height="35" width="120" [src]="captchaEncoded" style="border-radius: 50px;
+                        background: transparent;
+                        outline: none;
+                        border: 1px solid #e8e8e8;
+                        letter-spacing: .05em;" />
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div style="margin: .5rem 0 0 2rem">
+                      <a class="refreshcaptcha bg-primary rounded py-1 px-2"
+                        (click)="refreshCaptcha()">
+                        <i class="fa fa-repeat text-white" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <input type="text"
+                      class="login__input"
+                      placeholder="Captcha"
+                      [(ngModel)]="captchaData"
+                      name="captcha"
+                      autocomplete="off"
+                      maxlength="4">
+                  </div>
+                </div>
+              </div>
+
+              <input type="submit" value="Login" (click)="btnLogin()">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-lg-4 col-s-12 col-md-12"></div>
+        <div class="col-lg-8 col-s-12 col-md-12 scroll-message" style="background: rgba(255, 255, 255, 0.0);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.75);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);">
+            <marquee _ngcontent-kin-c50="" behaviour="scroll" direction="left" onmouseover="this.stop()" onmouseout="this.start()" class="subheader py-1">
+              <h6 _ngcontent-kin-c50="" class="mb-0">
+                <span _ngcontent-kin-c50="">Click on link <a _ngcontent-kin-c50="" href="https://swarnandhra.ap.gov.in/Suggestions" target="_blank" class="TextColorChange"> https://swarnandhra.ap.gov.in/Suggestions</a> for submitting your suggestions/inputs on Swarna Andhra@2047&nbsp;vision&nbsp;Plan</span>
+              </h6>
+            </marquee>
+      
+        </div>
+    </div> -->
+  </div>
+</div>
