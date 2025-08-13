@@ -1,0 +1,116 @@
+<div class="card">
+    <div class="card-header p-2">
+        <h5 class="mb-0">STATE LEVEL PURCHASE INFORMATION REPORT</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+
+                <div class="col-md-12 table-responsive" [hidden]="RegDetails?.length < 1">
+                    <p-table id="tbltable" [value]="RegDetails" class="p-datatable"
+                        styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" [paginator]="true" #dt2
+                        [rows]="RegDetails.length" [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]" sortMode="multiple"
+                        [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}"
+  
+
+                        [globalFilterFields]="['PONUMBER', 'PODATE', 'INVOICENO', 'INVOICEDATE','QTY', 'INVOICE_AMOUNT', 
+'TOTAL_APRL_PER', 'TOTAL_APRL_AMOUNT', 'BUDGETSLIP_NO', 'BUDGET_FINCIAL_YEAR', 
+'PROCEDINGNO', 'PROCEEDING_DATE']" [scrollable]="true"
+                        scrollHeight="560px">
+                        <ng-template pTemplate="caption">
+                            <div class="row">
+                                <div class="col-md-8"></div>
+                                <div class="col-md-4" [hidden]="RegDetails?.length < 1">
+                                    <button type="button"
+                                        (click)="exportTable_ToPDF('tbltable','State Level Report')"
+                                        class="btn btn-danger btn-sm pull-right" pTooltip="PDF" tooltipPosition="bottom"
+                                        style="margin-top: 0px;">
+                                        <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>PDF</button>
+                                    <button type="button"
+                                        (click)="exportTable_toexcel('tbltable','State Level Report')"
+                                        class="btn btn-success btn-sm pull-right" pTooltip="XLS" 
+                                        tooltipPosition="bottom" style="margin-top: 0px;">
+                                        <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>EXCEL</button>
+                                    <span class="p-input-icon-left search-container">
+                                        <i class="pi pi-search"></i>
+                                        <input pInputText type="text"
+                                            (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                                            placeholder="Search keyword" class="search-input" />
+                                    </span>
+
+                                </div>
+                            </div>
+                        </ng-template>
+
+                        <ng-template pTemplate="header"  >
+                            <tr class="text-center" style="white-space: nowrap;">
+                                <th  class="headdd"  >S.No </th>  
+                                <th  class="headdd"  >PO NUMBER </th>  
+                                <th  class="headdd"  >PO DATE  </th>  
+                                <th  class="headdd"  >INVOICE NUMBER </th>  
+                                <th  class="headdd"  >INVOICE DATE </th>  
+                                <th  class="headdd"  >INVOICE QTY </th>  
+                                <th  class="headdd"  >INVOICE AMOUNT </th>  
+                                <th  class="headdd"  >APPROVALS % </th>  
+                                <th  class="headdd"  >APPROVAL AMOUNT </th>  
+                                <th  class="headdd"  >BUDGETSLIP NO </th>  
+                                <th  class="headdd"  >BUDGET FINANCIAL YEAR </th>  
+                                <th  class="headdd"  >PROCEEDING NO </th>  
+                                <th  class="headdd"  >PROCEEDING DATE     </th>                          
+                            </tr>
+
+                             <tr class="text-center" style="white-space: nowrap;">
+                                <th   class="headdd2"   >1 </th>  
+                                <th  class="headdd2"   pSortableColumn="PONUMBER"   >2<p-sortIcon field="PONUMBER"   /> 
+                                <th  class="headdd2" pSortableColumn="PODATE"   >3<p-sortIcon field="PODATE" /> 
+                                <th class="headdd2"  pSortableColumn="INVOICENO"   >4<p-sortIcon field="INVOICENO" /> 
+                                <th class="headdd2"  pSortableColumn="INVOICEDATE"   >5<p-sortIcon field="INVOICEDATE" /> 
+                                <th class="headdd2"  pSortableColumn="QTY"   >6<p-sortIcon field="QTY" /> 
+                                <th class="headdd2"  pSortableColumn="INVOICE_AMOUNT"   >7<p-sortIcon field="INVOICE_AMOUNT" />  
+                                <th  class="headdd2" pSortableColumn="TOTAL_APRL_PER"   >8<p-sortIcon field="TOTAL_APRL_PER" /> 
+                                <th  class="headdd2" pSortableColumn="TOTAL_APRL_AMOUNT"   >9<p-sortIcon field="TOTAL_APRL_AMOUNT" /> 
+                                <th class="headdd2"  pSortableColumn="BUDGETSLIP_NO"   >10<p-sortIcon field="BUDGETSLIP_NO" /> 
+                                <th class="headdd2"  pSortableColumn="BUDGET_FINCIAL_YEAR"   >11<p-sortIcon field="BUDGET_FINCIAL_YEAR" /> 
+                                <th class="headdd2"  pSortableColumn="PROCEDINGNO"   >12<p-sortIcon field="PROCEDINGNO" /> 
+                                <th  class="headdd2" pSortableColumn="PROCEEDING_DATE"   >13<p-sortIcon field="PROCEEDING_DATE" />                                
+                            </tr>
+
+                            
+                           
+                        </ng-template>
+                        <ng-template pTemplate="body" let-RegDetails let-rowIndex="rowIndex">
+                            <tr>
+                                  <td  >{{ rowIndex+1}}</td>
+                                <td style="text-align: left;text-wrap-mode:nowrap;" >{{ RegDetails.PONUMBER }}</td>
+                                <td style="text-wrap-mode:nowrap;" >{{ RegDetails.PODATE  | slice:0:10 }}</td>
+                                <td  style="text-align: left;" >{{ RegDetails.INVOICENO }}</td>
+                                <td>{{ RegDetails.INVOICEDATE }}</td>
+                                <td  style="text-align: right;" >{{ RegDetails.QTY }}</td>
+                                <td style="text-align: right;">{{ RegDetails.INVOICE_AMOUNT }}</td>
+                                <td style="text-align: right;">{{ RegDetails.TOTAL_APRL_PER }}</td>
+                                <td style="text-align: right;">{{ RegDetails.TOTAL_APRL_AMOUNT }}</td>
+
+                                <td style="text-align: right;">{{ RegDetails.BUDGETSLIP_NO }}</td>
+                                <td>{{ RegDetails.BUDGET_FINCIAL_YEAR }}</td>
+                                <td  style="text-align: left;text-wrap-mode:nowrap;" >{{ RegDetails.PROCEDINGNO }}</td>
+                                <td>{{ RegDetails.PROCEEDING_DATE }}</td> 
+                            
+                            </tr>  
+                        </ng-template> 
+                        <!-- <ng-template pTemplate="footer">
+                            <tr> 
+                                 <td style="text-align: center;" pFrozenColumn  ></td>
+                                <td style="text-align: center;" pFrozenColumn  >TOTAL</td>
+                                <td style="text-align: center;"></td>
+                                
+                                <td style="text-align: right;">{{ reportTotals.TOTAL_VILLAGES_ADDED }}</td> 
+                                
+                            </tr>
+                        </ng-template> -->
+                    </p-table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div> 

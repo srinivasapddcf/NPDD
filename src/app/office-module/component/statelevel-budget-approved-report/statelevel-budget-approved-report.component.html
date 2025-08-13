@@ -1,0 +1,88 @@
+<div class="card">
+    <div class="card-header p-2">
+        <h5 class="mb-0">APPROVED REPORT</h5>
+    </div>
+    <div class="card-body"> 
+        <div class="col-md-11" [hidden]="approveddetailsList?.length < 1">
+            <button type="button" class="btn btn-success btn-sm pull-right" (click)="btnExcel()">
+                <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>
+                Download Excel
+            </button> 
+
+            <button type="button" class="btn btn-secondary" (click)="btnback()">
+                <i class="fa fa-arrow-left me-2" aria-hidden="true"></i>
+                Back
+            </button>
+        </div>
+  
+        <div class="table-responsive" [hidden]="approveddetailsList?.length < 1">
+            <table class="table table-striped ah-table text-center" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" style="border: 1px solid rgb(19, 18, 18);" >
+                <thead class="bg-success text-white" style="border: 1px solid rgb(15, 15, 15);">
+                    <tr style="border: 1px solid white;">
+                        <th class="tableheader_color" style="border: 1px solid white;width: 80px;">S No</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">DISTRICT NAME </th>
+                        <th class="tableheader_color" style="border: 1px solid white;">APPROVALS</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">AMOUNT</th>                        
+                        <th class="tableheader_color" style="border: 1px solid white;">NOOF BMCU</th>
+                       
+                    </tr>
+                    <tr>
+                        <th class="tableheader_color" style="border: 1px solid white;width: 80px;">(1)</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">(2)</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">(3)</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">(4)</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">(5)</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let objd of approveddetailsList; let i = index"  style="border: 1px solid white;">
+                        <td class="number_align" style="border: 1px solid rgb(19, 18, 18);width: 80px !important;">{{i+1}}</td>
+                        <td class="text_alignleft"style="border: 1px solid rgb(19, 18, 18);">{{objd.DISTRICT}}</td>
+                        <td class="number_align"style="border: 1px solid rgb(19, 18, 18);">{{objd.APPROVAL}}</td>
+                        <td class="number_align" style="border: 1px solid rgb(19, 18, 18);"><b>{{objd.AMMOUNT    | currency:'INR':'symbol' }}</b></td>
+
+                        <td class="number_align" style="border: 1px solid rgb(19, 18, 18);">
+                            
+                        
+                            <a style="cursor: pointer; text-decoration: underline" class="text-primary"
+                            (click)="btnGetDetails(objd)"><b>{{objd.NO_BMCU }}</b></a> 
+
+                        </td>
+                        
+                    </tr>
+                </tbody>
+
+                  <tbody *ngIf="approveddetailsList?.length > 0">
+                    <td></td>
+                    <td class="font-weight-bold text_alignleft" style="width: 100px;">
+                        <b>TOTAL</b>
+                    </td>
+                    <td class="font-weight-bold number_align" >{{reportTotal.APPROVAL }}</td>
+                    <td class="font-weight-bold number_align">{{reportTotal.AMMOUNT    | currency:'INR':'symbol' }} </td>
+                    <td class="font-weight-bold number_align">{{reportTotal.NO_BMCU}} </td>
+                    
+                      
+                </tbody>  
+
+
+
+              
+
+            </table> 
+        </div> 
+
+
+
+
+
+        
+      
+
+
+
+
+
+
+    </div>
+  </div>

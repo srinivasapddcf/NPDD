@@ -1,0 +1,151 @@
+ 
+ 
+<div class="card">
+    <div class="card-header p-2">
+        <h5 class="mb-0">Po Based Invoice Details Report</h5>
+    </div>
+    <div class="card-body">
+
+
+        <div class="col-md-12 row" > <div class="col-md-6 row" >
+             <button type="button" class="btn btn-secondary" (click)="btnback()">
+            <i class="fa fa-arrow-left me-2" aria-hidden="true"></i>
+            Back
+        </button>
+    </div>  <div class="col-md-6 row" ><U> <h5>
+        <span  style="text-align: center;"  ><label><U> DISTRICT NAME : </U></label> {{districtName}} </span></h5></U></div>
+        </div>
+        
+        <div class="col-md-12 row"   > 
+  
+            <div class="table-responsive" [hidden]="DistrictdetailsList?.length < 1">
+    
+                <table class="table table-striped ah-table text-center"  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                    data-page-length='25'>
+                    <thead class="bg-success text-white" style="border: 1px solid white;BACKGROUND-COLOR: #124e66 !important;">
+                        <tr  >
+                            <th class="tableheader_color">SNo.</th> 
+                            <!-- <th class="tableheader_color">DISTRICT NAME</th>
+                            <th class="tableheader_color"  >QUANTITY</th>
+                            <th class="tableheader_color"  >AMOUNT</th> -->
+                            <th class="tableheader_color"  >INVOICE NO</th>
+                            <th class="tableheader_color"  >INVOICE QUANTITY</th>
+                            <th class="tableheader_color"   >INVOICE AMOUNT</th>
+                            <!-- <th class="tableheader_color" >BALANCE QUANTITY</th>
+                            <th class="tableheader_color"  >BALANCE AMOUNT</th> -->
+  
+  
+                            <th class="tableheader_color"  >ADVANCE %</th>
+                            <th class="tableheader_color"  >ADVANCE AMOUNT</th> 
+  
+                            <th class="tableheader_color"  >DELIVERY %</th>
+                            <th class="tableheader_color"  >DELIVERY AMOUNT</th>
+  
+                            <th class="tableheader_color"  >INSTALL %</th>
+                            <th class="tableheader_color"  >INSTALL AMOUNT</th>
+  
+                            <th class="tableheader_color"  >FINAL %</th>
+                            <th class="tableheader_color"  >FINAL AMOUNT</th>
+  
+                            <th class="tableheader_color"  >TOTAL %</th>
+                            <th class="tableheader_color"  >TOTAL AMOUNT</th>
+  
+         
+                        </tr>
+                        <tr style="BACKGROUND-COLOR: #124e66;">
+                            <th class="tableheader_color">(1)</th>
+                            <th class="tableheader_color">(2)</th>
+                            <th class="tableheader_color">(3)</th>
+                            <th class="tableheader_color">(4)</th>
+                            <th class="tableheader_color">(5)</th>
+                            <th class="tableheader_color">(6)</th>
+                            <th class="tableheader_color">(7)</th>
+                            <th class="tableheader_color">(8)</th> 
+                            <th class="tableheader_color">(9)</th> 
+                            <th class="tableheader_color">(10)</th>
+                            <th class="tableheader_color">(11)</th>
+                            <th class="tableheader_color">(12)</th>
+                            <th class="tableheader_color">(13)</th>
+                            <th class="tableheader_color">(14)</th>
+                            <!-- <th class="tableheader_color">(15)</th>
+                            <th class="tableheader_color">(16)</th>
+                            <th class="tableheader_color">(17)</th> -->
+                            <!-- <th class="tableheader_color">(18)</th>
+                            <th class="tableheader_color">(19)</th> -->
+            
+                        </tr>
+                    </thead>
+                    <tbody calss="table_cells_borders">
+                        <tr *ngFor="let obj1 of DistrictdetailsList; let i=index;">
+                            <td class="number_align">{{ i + 1 }}</td> 
+                            <!-- <td  class="text_alignleft" >{{obj1.DISTRICTNAME}}</td>
+                            <td class="number_align">{{obj1.QUANTITY}}</td>
+                            <td class="number_align">{{obj1.AMOUNT}}</td>  -->
+                            <td class="number_align">{{obj1.INVOICE_NO}}</td> 
+                            <td class="number_align">{{obj1.INVOICE_QUANTITY}}</td> 
+                            <td class="number_align">{{obj1.INVOICE_AMOUNT| currency :'INR':'symbol'   }}</td> 
+                            <!-- <td class="number_align">{{obj1.BALANCE_QUANTITY}}</td> 
+                            <td class="number_align">{{obj1.BALANCE_INVOICE}}</td>  -->
+  
+  
+                            <td class="number_align">{{obj1.ADVANCE_PER}}</td>
+                            <td class="number_align">{{obj1.ADVANCE_AMNT   | currency:'INR':'symbol'  }} </td>
+                            <td class="number_align">{{obj1.DELIVERY_PER}} </td>
+                            <td class="number_align">{{obj1.DELIVERY_AMNT  | currency:'INR':'symbol'}}</td>
+                            <td class="number_align">{{obj1.INSTALL_PER  }} </td>
+                            <td class="number_align">{{obj1.INSTALL_AMNT  | currency:'INR':'symbol'}}</td>
+                            <td class="number_align">{{obj1.FINAL_PER}}</td>
+                            <td class="number_align">{{obj1.FINAL_AMNT  | currency:'INR':'symbol'}}</td>
+                            <td class="number_align">{{obj1.TOTAL_PER}}</td>
+                            <td class="number_align">{{obj1.TOTAL_AMNT  | currency:'INR':'symbol'}}</td> 
+         
+                        </tr>
+                    </tbody>
+    
+    <!-- <footer>
+        <tr> <td>   </td>
+            <td>  {{reportTotal.DISTRICTNAME}} </td>
+            <td>  {{reportTotal.QUANTITY}} </td>
+            <td>  {{reportTotal.AMOUNT}} </td>
+            <td>  {{reportTotal.INVOICE_QUANTITY}} </td>
+            <td>  {{reportTotal.INVOICE_AMOUNT}} </td>
+            <td>  {{reportTotal.BALANCE_QUANTITY}} </td>
+            <td>  {{reportTotal.BALANCE_INVOICE}} </td>   
+        </tr>
+    </footer> -->
+    
+    
+    <tbody *ngIf="DistrictdetailsList?.length > 0">
+        <td class="font-weight-bold text_alignleft">--</td>
+        <td class="font-weight-bold text_alignleft">
+            <b>TOTAL</b>
+        </td>
+        <!-- <td class="font-weight-bold number_align" >{{ reportTotal.QUANTITY   }}</td>
+        <td class="font-weight-bold number_align">{{ reportTotal.AMOUNT  }}</td> 
+        <td class="font-weight-bold number_align">{{ reportTotal.INVOICE_NO  }}</td>-->
+        <td class="font-weight-bold number_align">{{ reportTotal.INVOICE_QUANTITY  }}</td>
+        <td class="font-weight-bold number_align">{{ reportTotal.INVOICE_AMOUNT    | currency:'INR':'symbol'}}</td>
+        <!-- <td class="font-weight-bold number_align">{{ reportTotal.BALANCE_QUANTITY   }}</td>
+        <td class="font-weight-bold number_align">{{ reportTotal.BALANCE_INVOICE  }}</td> -->
+    
+        <td class="font-weight-bold number_align">{{reportTotal.ADVANCE_PER}}</td>
+        <td class="font-weight-bold number_align">{{reportTotal.ADVANCE_AMNT  | currency:'INR':'symbol'}} </td>
+        <td class="font-weight-bold number_align">{{reportTotal.DELIVERY_PER}} </td>
+        <td class="font-weight-bold number_align">{{reportTotal.DELIVERY_AMNT  | currency:'INR':'symbol'}}</td>
+        <td class="font-weight-bold number_align">{{reportTotal.INSTALL_PER}} </td>
+        <td class="font-weight-bold number_align">{{reportTotal.INSTALL_AMNT  | currency:'INR':'symbol'}}</td>
+        <td class="font-weight-bold number_align">{{reportTotal.FINAL_PER}}</td>
+        <td class="font-weight-bold number_align">{{reportTotal.FINAL_AMNT  | currency:'INR':'symbol'}}</td>
+        <td class="font-weight-bold number_align">{{reportTotal.TOTAL_PER}}</td>
+        <td class="font-weight-bold number_align">{{reportTotal.TOTAL_AMNT  | currency:'INR':'symbol'}}</td>
+    
+    </tbody>
+    
+    
+                </table>
+    
+            </div>
+    
+    
+          </div>
+    

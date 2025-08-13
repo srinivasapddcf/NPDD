@@ -1,0 +1,1735 @@
+ <h5 class="text-center font-weight-bold mb-3 border-bottom text-success">
+  Training  Approvals Details
+<!-- 
+<div class="row text-white" style="margin-top: -20px;margin-left: 10px;">
+   <div > Job Notification : </div>
+    
+   <div  >   <select class="form-control" id="State" [(ngModel)]="jobnotification" (change)="Loadcounts()">
+                        <option disabled selected value="undefined">-- Select Notification--</option>
+                         <option     value="1013">Notification 1013</option>
+                          <option     value="1014">Notification 1014</option> 
+                    </select>  </div>
+
+                    <div class="col mb-9">  </div>
+</div> -->
+</h5>
+<div class="row" *ngIf="IndentDashboardview">
+
+
+  
+  <!-- PENDING -->
+  <!-- <div class="col-md-1"></div> -->
+
+  
+  <!-- All candidates -->
+  <!-- <div class="col mb-3">
+    <div class="stats-card Indent-success" (click)="btnDashboardDetails('6')"
+      [ngClass]="reportType === '6' ? 'active' : ''">
+       
+      <div class="card-body hgt">
+        <div class="d-flex justify-content-between">
+          <div class="stats-text">
+            <p class="text-uppercase text-muted mb-1"  style="font-size:x-small;">
+              All candidates 
+            </p>
+            <h5 class="font-weight-bold mb-0" *ngIf="StockIncrementCounts.ALL_CANDIDATES!=null" style="text-align: center;">
+              {{StockIncrementCounts.ALL_CANDIDATES}}
+            </h5>
+            <h5 *ngIf="StockIncrementCounts.ALL_CANDIDATES==null">0</h5>
+          </div>
+          <div class="circle">
+            <i class="fas fa-check-double"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<!-- PENDING -->
+  <div class="col mb-3">
+    <div class="stats-card Indent-pending" (click)="btnDashboardDetails('1')"
+      [ngClass]="reportType === '1' ? 'active' : ''">
+      <!-- <div class="overlay"></div> -->
+      <div class="card-body hgt">
+        <div class="justify-content-between d-flex">
+          <div class="stats-text">
+            <p class="text-uppercase text-muted mb-1"  style="font-size:x-small;">PENDING
+              <!-- <small><b>PENDING</b></small> -->
+              </p>
+            <h5 class="font-weight-bold mb-0" *ngIf="StockIncrementCounts.PENDING!=null" style="text-align: center;">
+              {{StockIncrementCounts.PENDING}}
+            </h5>
+            <h5 *ngIf="StockIncrementCounts.PENDING==null">0</h5>
+          </div>
+          <div class="circle">
+            <i class="fas fa-hourglass-half"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Additional information Requested -->
+  <div class="col mb-3">
+    <div class="stats-card Indent-Reject1" (click)="btnDashboardDetails('4')"
+      [ngClass]="reportType === '4' ? 'active' : ''">
+      <!-- <div class="overlay"></div> -->
+      <div class="card-body hgt">
+        <div class="d-flex justify-content-between">
+          <div class="stats-text">
+            <p class="text-uppercase text-muted mb-1"  style="font-size:x-small;"> Additional information Requested </p>
+            <h5 class="font-weight-bold mb-0" *ngIf="StockIncrementCounts.ADDITIONAL_INFORMATION_REQUIED!=null" style="text-align: center;">
+              {{StockIncrementCounts.ADDITIONAL_INFORMATION_REQUIED}}
+            </h5>
+            <h5 *ngIf="StockIncrementCounts.ADDITIONAL_INFORMATION_REQUIED==null">0</h5>
+          </div>
+             
+           <div class="circle" style="width: 106px !important;height: 60px  !important;">
+            <i class="fas fa-icicles fa-times fa-1x"></i>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+<!-- Resubmitted -->
+   <div class="col mb-3">
+    <div class="stats-card Indent-pending1" (click)="btnDashboardDetails('5')"
+      [ngClass]="reportType === '5' ? 'active' : ''">
+    <!-- <div class="overlay"></div> -->
+      <div class="card-body hgt">
+        <div class="justify-content-between d-flex">
+          <div class="stats-text">
+            <p class="text-uppercase text-muted mb-1"   style="font-size:x-small;">Resubmitted
+              <!-- <small><b>Resubmitted</b></small> -->
+            </p>
+            <h5 class="font-weight-bold mb-0" *ngIf="StockIncrementCounts.RESUBMITTED!=null" style="text-align: center;">
+              {{StockIncrementCounts.RESUBMITTED}}
+            </h5>
+            <h5 *ngIf="StockIncrementCounts.RESUBMITTED==null">0</h5>
+          </div>
+          <div class="circle">
+            <i class="fas fa-hourglass-half"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPROVED -->
+  <div class="col mb-3">
+    <div class="stats-card Indent-success" (click)="btnDashboardDetails('2')"
+      [ngClass]="reportType === '2' ? 'active' : ''">
+     <!-- <div class="overlay"></div> -->
+      <div class="card-body hgt">
+        <div class="d-flex justify-content-between">
+          <div class="stats-text">
+            <p class="text-uppercase text-muted mb-1"   style="font-size:x-small;">APPROVED
+              <!-- <small><b>APPROVED</b></small> -->
+            </p>
+            <h5 class="font-weight-bold mb-0" *ngIf="StockIncrementCounts.APPROVED!=null" style="text-align: center;">
+              {{StockIncrementCounts.APPROVED}}
+            </h5>
+            <h5 *ngIf="StockIncrementCounts.APPROVED==null">0</h5>
+          </div>
+          <div class="circle">
+            <i class="fas fa-check-double"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REJECTED -->
+  <div class="col mb-3">
+    <div class="stats-card Indent-Reject" (click)="btnDashboardDetails('3')"
+      [ngClass]="reportType === '3' ? 'active' : ''">
+      <!-- <div class="overlay"></div> -->
+      <div class="card-body hgt">
+        <div class="d-flex justify-content-between">
+          <div class="stats-text">
+            <p class="text-uppercase text-muted mb-1"   style="font-size:x-small;">REJECT
+              <!-- <small><b>REJECT</b></small> -->
+            </p>
+            <h5 class="font-weight-bold mb-0" *ngIf="StockIncrementCounts.REJECTED!=null" style="text-align: center;">
+              {{StockIncrementCounts.REJECTED}}
+            </h5>
+            <h5 *ngIf="StockIncrementCounts.REJECTED==null">0</h5>
+          </div>
+          <div class="circle">
+            <i class="fas fa-icicles fa-times fa-3x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-md-1"></div> -->
+</div>
+
+<div class="row">
+  <div style="background-color: brown;color: brown;">
+    <hr />
+  </div>
+</div>
+
+
+<!-- ALL APPLICATIONS TABLE -->
+<!-- <div *ngIf="ALLAPPL_div">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+            <h5 class="mb-0">ALL CANDIDATES LIST</h5>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+
+        <p-table id="tbltable" [value]="jobDetailsListall" [paginator]="true" [rows]="jobDetailsListall.length" #dt2
+          [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
+          [globalFilterFields]="['REGISTRATION_ID','NAME','FATHER_OR_MOTHER_NAME','GENDER','EMAIL_ID','MOBILE_NUMBER','DESIGNATION','COURSE_GRDN_DEGREE','BRANCH_SPECIALIZATION','COURSE_GRDN_PG','BRANCH_SPECIALIZATION_PG']"
+          styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
+          [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}" [scrollable]="true" sortMode="multiple"
+          scrollHeight="560px">
+          <ng-template pTemplate="caption">
+            <div class="row">
+              <div class="col-md-8"></div>
+              <div class="col-md-4" [hidden]="jobDetailsListall?.length < 1">
+                <button type="button" (click)="exportTable_ToPDF('tbltable','Applications Received to The Notification  No:17/2021/ADMN, Dated  16-05-2025')"
+                  class="btn btn-danger btn-sm pull-right" pTooltip="PDF" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>PDF</button>
+                <button type="button" (click)="exportTable_toexcel('tbltable','Applications Received to The Notification  No:17/2021/ADMN, Dated  16-05-2025')"
+                  class="btn btn-success btn-sm pull-right" pTooltip="XLS" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>EXCEL</button>
+
+ 
+
+
+                <span class="p-input-icon-left search-container">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                    placeholder="Search keyword" class="search-input" />
+                </span>
+
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template pTemplate="header">
+            <tr>
+              <th rowspan="2">S.No</th> 
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="REGISTRATION_ID">REGISTRATION ID <p-sortIcon field="REGISTRATION_ID" />
+              </th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="NAME">NAME <p-sortIcon field="NAME" /></th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="FATHER_OR_MOTHER_NAME">FATHER OR MOTHER NAME <p-sortIcon
+              field="FATHER_OR_MOTHER_NAME" /></th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="GENDER">GENDER <p-sortIcon field="GENDER" /></th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="DATE_OF_BIRTH_SCC">DATE OF BIRTH <p-sortIcon field="DATE_OF_BIRTH_SCC" />
+              </th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="EMAIL_ID">EMAIL ID <p-sortIcon field="EMAIL_ID" /></th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="MOBILE_NUMBER">MOBILE NUMBER <p-sortIcon field="MOBILE_NUMBER" /></th>
+               
+              <th colspan="4"  style="text-align: center;">EDUCATION CERTIFICATE</th>
+              <th colspan="2"  style="text-align: center;">RESUME</th>
+              <th rowspan="2" style="text-align: center;">OFFER LETTER/EXPERIENCE</th> 
+              <th rowspan="2" pSortableColumn="COURSE_GRDN_DEGREE"style="text-align: center;"> DEGREE <p-sortIcon field="COURSE_GRDN_DEGREE" /></th>
+              <th rowspan="2" pSortableColumn="BRANCH_SPECIALIZATION"style="text-align: center;">DEGREE SPECIALIZATION <p-sortIcon field="BRANCH_SPECIALIZATION" /></th> 
+              <th rowspan="2" pSortableColumn="COURSE_GRDN_PG"style="text-align: center;">PG <p-sortIcon field="COURSE_GRDN_PG" /></th>  
+              <th rowspan="2" pSortableColumn="BRANCH_SPECIALIZATION_PG"style="text-align: center;">PG SPECIALIZATION<p-sortIcon field="BRANCH_SPECIALIZATION_PG" /></th> 
+             
+
+            
+
+
+
+            </tr>
+            <tr>
+              <th>SSC</th>
+              <th>INTERMEDIATE</th>
+              <th>DEGREE/B.TECH</th>
+              <th>PG</th>
+              <th>FRESHER</th>
+              <th>EXPERIENCE</th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-obj let-i="rowIndex">
+            <tr>
+              <td style="text-align: right;">{{i + 1}}</td>
+              <td style="text-align: center;">{{obj.REGISTRATION_ID}}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{ obj.NAME }}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{obj.FATHER_OR_MOTHER_NAME}}</td>
+              <td style="text-align:  left !important;">{{obj.GENDER}}</td>
+              <td style="text-align:  left !important;">{{obj.DATE_OF_BIRTH_SCC}}</td>
+              <td style="text-align:  left !important;">{{obj.EMAIL_ID}}</td>
+              <td style="text-align: right;">{{obj.MOBILE_NUMBER}}</td>
+               
+              <td style="text-align: center;">
+                <button type="button" class="btn btn-link btn-sm  px-5"
+                  *ngIf="obj.UPLOAD_DCNTS_SSC !== null && obj.UPLOAD_DCNTS_SSC !== 'NA' && obj.UPLOAD_DCNTS_SSC !== undefined"
+                  (click)="btnPdfView(obj.UPLOAD_DCNTS_SSC)">
+                  VIEW
+                </button>
+                <span
+                  *ngIf="obj.UPLOAD_DCNTS_SSC === null || obj.UPLOAD_DCNTS_SSC === 'NA' || obj.UPLOAD_DCNTS_SSC === undefined">NA</span>
+              </td>
+
+              <td style="text-align: center;">
+                <button type="button" class="btn btn-link btn-sm  px-5"
+                  *ngIf="obj.UPLOAD_DCNTS_DIPL !== null && obj.UPLOAD_DCNTS_DIPL !== 'NA' && obj.UPLOAD_DCNTS_DIPL !== undefined"
+                  (click)="btnPdfView(obj.UPLOAD_DCNTS_DIPL)">
+                  VIEW
+                </button>
+                <span
+                  *ngIf="obj.UPLOAD_DCNTS_DIPL === null || obj.UPLOAD_DCNTS_DIPL === 'NA' || obj.UPLOAD_DCNTS_DIPL === undefined">NA</span>
+              </td>
+
+              <td style="text-align: center;">
+                <button type="button" class="btn btn-link btn-sm  px-5"
+                  *ngIf="obj.UPLOAD_DCNTS__GRDN_DEGREE !== null && obj.UPLOAD_DCNTS__GRDN_DEGREE !== 'NA' && obj.UPLOAD_DCNTS__GRDN_DEGREE !== undefined"
+                  (click)="btnPdfView(obj.UPLOAD_DCNTS__GRDN_DEGREE)">
+                  VIEW
+                </button>
+                <span
+                  *ngIf="obj.UPLOAD_DCNTS__GRDN_DEGREE === null || obj.UPLOAD_DCNTS__GRDN_DEGREE === 'NA' || obj.UPLOAD_DCNTS__GRDN_DEGREE === undefined">NA</span>
+              </td>
+
+              <td style="text-align: center;">
+                <button type="button" class="btn btn-link btn-sm  px-5"
+                  *ngIf="obj.UPLOAD_DCNTS__GRDN_PG !== null && obj.UPLOAD_DCNTS__GRDN_PG !== 'NA' && obj.UPLOAD_DCNTS__GRDN_PG !== undefined"
+                  (click)="btnPdfView(obj.UPLOAD_DCNTS__GRDN_PG)">
+                  VIEW
+                </button>
+                <span
+                  *ngIf="obj.UPLOAD_DCNTS__GRDN_PG === null || obj.UPLOAD_DCNTS__GRDN_PG === 'NA' || obj.UPLOAD_DCNTS__GRDN_PG === undefined">NA</span>
+              </td>
+
+              
+              <td style="text-align: center;">
+                <button type="button" class="btn btn-link btn-sm  px-5"
+                  *ngIf="obj.CV_UPLOAD_FRES !== null && obj.CV_UPLOAD_FRES !== 'NA' && obj.CV_UPLOAD_FRES !== undefined"
+                  (click)="btnPdfView(obj.CV_UPLOAD_FRES)">
+                  VIEW
+                </button>
+                <span
+                  *ngIf="obj.CV_UPLOAD_FRES === null || obj.CV_UPLOAD_FRES === 'NA' || obj.CV_UPLOAD_FRES === undefined">NA</span>
+              </td>
+
+              <td style="text-align: center;">
+                <button type="button" class="btn btn-link btn-sm  px-5"
+                  *ngIf="obj.CV_UPLOAD_EXP !== null && obj.CV_UPLOAD_EXP !== 'NA' && obj.CV_UPLOAD_EXP !== undefined"
+                  (click)="btnPdfView(obj.CV_UPLOAD_EXP)">
+                  VIEW
+                </button>
+                <span
+                  *ngIf="obj.CV_UPLOAD_EXP === null || obj.CV_UPLOAD_EXP === 'NA' || obj.CV_UPLOAD_EXP === undefined">NA</span>
+              </td>
+
+               
+              <td style="text-align: center;">
+                <button type="button" class="btn btn-link btn-sm  px-5"
+                  *ngIf="obj.EXPERIENCE_LTR_UPLOAD_EXP !== null && obj.EXPERIENCE_LTR_UPLOAD_EXP !== 'NA' && obj.EXPERIENCE_LTR_UPLOAD_EXP !== undefined"
+                  (click)="btnPdfView(obj.EXPERIENCE_LTR_UPLOAD_EXP)">
+                  VIEW
+                </button>
+                <span
+                  *ngIf="obj.EXPERIENCE_LTR_UPLOAD_EXP === null || obj.EXPERIENCE_LTR_UPLOAD_EXP === 'NA' || obj.EXPERIENCE_LTR_UPLOAD_EXP === undefined">NA</span>
+              </td>
+
+            <td style="text-align:  left !important;">{{obj.COURSE_GRDN_DEGREE}}</td>
+            <td style="text-align:  left !important;">{{obj.BRANCH_SPECIALIZATION}}</td> 
+            <td style="text-align:  left !important;">{{obj.COURSE_GRDN_PG}}</td>
+            <td style="text-align:  left !important;">{{obj.BRANCH_SPECIALIZATION_PG}}</td>
+
+             
+            </tr>
+          </ng-template>
+        </p-table>
+
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- PENDING TABLE -->
+<div *ngIf="PENDING_div">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+            <h5 class="mb-0">PENDING LIST</h5>
+          </div>
+        </div>
+      </div>
+      <div class="card-body"> 
+<!-- ,'SPEAKER_IMG2_PDF','SPEAKER_IMG3_PDF','SPEAKER_IMG4_PDF'   ,'PRCT_ATND_IMG2_PDF','PRCT_ATND_IMG3_PDF','PRCT_ATND_IMG4_PDF' -->
+        <p-table id="tbltable" [value]="jobDetailsList" [paginator]="true" [rows]="jobDetailsList.length" #dt2
+          [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
+          [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
+          styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
+          [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}" [scrollable]="true" sortMode="multiple"
+          scrollHeight="560px">
+          <ng-template pTemplate="caption">
+            <div class="row">
+              <div class="col-md-8"></div>
+              <div class="col-md-4" [hidden]="jobDetailsList?.length < 1">
+                <button type="button" (click)="exportTable_ToPDF('tbltable','Training Pending Details')"
+                  class="btn btn-danger btn-sm pull-right" pTooltip="PDF" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>PDF</button>
+                <button type="button" (click)="exportTable_toexcel('tbltable','Training Pending Details')"
+                  class="btn btn-success btn-sm pull-right" pTooltip="XLS" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>EXCEL</button>
+
+ 
+
+
+                <span class="p-input-icon-left search-container">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                    placeholder="Search keyword" class="search-input" />
+                </span>
+
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template pTemplate="header">
+            <tr>
+               
+  <th  class="bgc">S.No</th>
+            <th  class="bgc">DISTRICT</th>
+  <th  class="bgc">TRAINING TYPE</th>
+  <th  class="bgc">TRAINING DATE</th>
+  <th  class="bgc">TRAINING TIME</th>
+  <th  class="bgc">VENU</th>
+  <th  class="bgc">VILLAGES</th>
+  <th  class="bgc">NO OF SPEAKERS</th>
+  <th  class="bgc">NO OF PARTICIPANTS</th>
+  <th  class="bgc">EXPENDITURE</th>
+  <th  class="bgc">COST/PARTICIPANT</th>
+  <th  class="bgc" style="text-align: center;">DOCUMENTS</th>
+  
+  <th  class="bgc"     style="text-align: center;font-size: 13px;    word-wrap: normal;">SPEAKER IMAGES</th>
+    <th  class="bgc"     style="text-align: center;font-size: 13px;    word-wrap: normal;">PARTICIPANT IMAGES</th>
+  
+  <th  class="bgc">SUBMITTED DATE</th>
+  <th  class="bgc">STATUS</th> 
+
+             <th   class="bgc"> ACTION  </th>
+            </tr> 
+           
+    <tr>   
+<th  class="bgc" style="text-align: center;"  > 1 </th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="DISTRICT"> 2<p-sortIcon  field="DISTRICT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_ID"> 3<p-sortIcon  field="TRAINING_ID"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_DATE"> 4<p-sortIcon   field="TRAINING_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_TIME"> 5<p-sortIcon  field="TRAINING_TIME"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 6<p-sortIcon   field="VENU" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 7<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 8<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 9<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 10<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 11<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 12 </th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 14</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 15<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 16<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;"  > 17 </th>
+
+    </tr> 
+              
+            
+          </ng-template>
+
+          <ng-template pTemplate="body" let-obj let-i="rowIndex">
+            <tr>
+              
+              <td style="text-align: right;">{{i + 1}}</td>
+               <td style="white-space: normal; text-align:  left !important;">{{ obj.DISTRICT}}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{ obj.TRAINING_ID }}</td>
+              <td style="white-space: normal; text-align:  center !important;">{{obj.TRAINING_DATE.substring(0, 10)  }}</td>
+              <td style="text-align:  right !important;">{{obj.TRAINING_TIME}}</td>
+               <td style="white-space: normal; text-align:  left !important;">{{obj.VENU}}</td>
+                <td style="white-space: normal; text-align:  left !important;">{{obj.VILLAGES}}</td>
+
+              <td style="text-align:  right !important;">{{obj.NO_OF_SPEAKERS}}</td>
+  <td style="text-align:  right !important;">{{obj.NO_OF_PARTICIPANT}}</td>
+  <td style="text-align:  right !important;">{{obj.EXPENDITURE}}</td>
+  <td style="text-align:  right !important;">{{obj.COST_PER_PARTICIPANT}}</td> 
+
+
+<td style="text-align: center;">  
+
+  <button  *ngIf="obj.ATND_PDF !== null && obj.ATND_PDF !== 'NA' &&  obj.ATND_PDF !== undefined "
+    (click)="btnPdfView(obj.ATND_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> ATTENDANCE
+</button>
+
+    <br /><br /> 
+ 
+
+    <button *ngIf="obj.HONORARIUM_TA_BILL_PDF !== null && obj.HONORARIUM_TA_BILL_PDF !== 'NA' &&  obj.HONORARIUM_TA_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.HONORARIUM_TA_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> HONORARIUM TA BILL
+</button>
+
+   <br /><br /> 
+
+ 
+
+   <button *ngIf="obj.REFRESHMENT_BILL_PDF !== null && obj.REFRESHMENT_BILL_PDF !== 'NA' &&  obj.REFRESHMENT_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.REFRESHMENT_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> REFRESHMENT BILL
+</button>
+ <br /><br /> 
+ 
+
+  <button *ngIf="obj.STATIONARY_TRN_BILL_PDF !== null && obj.STATIONARY_TRN_BILL_PDF !== 'NA' &&  obj.STATIONARY_TRN_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.STATIONARY_TRN_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> STATIONARY TRN BILL
+</button>
+ 
+                 <span  *ngIf="obj.STATIONARY_TRN_BILL_PDF === null ||  obj.STATIONARY_TRN_BILL_PDF === 'NA' ||  obj.STATIONARY_TRN_BILL_PDF === undefined" >NA</span >
+
+</td>
+ 
+
+<td style="text-align: center;"> 
+
+   
+
+
+ <button *ngIf="obj.SPEAKER_IMG1_PDF !== null && obj.SPEAKER_IMG1_PDF !== 'NA' &&  obj.SPEAKER_IMG1_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG1_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+
+
+ 
+<br /><br /> 
+
+<button *ngIf="obj.SPEAKER_IMG2_PDF !== null && obj.SPEAKER_IMG2_PDF !== 'NA' &&  obj.SPEAKER_IMG2_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG2_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+ 
+<br /><br />
+
+<button *ngIf="obj.SPEAKER_IMG3_PDF !== null && obj.SPEAKER_IMG3_PDF !== 'NA' &&  obj.SPEAKER_IMG3_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG3_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+
+ 
+     <br /><br />           
+
+     <button *ngIf="obj.SPEAKER_IMG4_PDF !== null && obj.SPEAKER_IMG4_PDF !== 'NA' &&  obj.SPEAKER_IMG4_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG4_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+ 
+</td>
+ 
+
+
+<td style="text-align: center;"> 
+
+
+  <button *ngIf="obj.PRCT_ATND_IMG1_PDF !== null && obj.PRCT_ATND_IMG1_PDF !== 'NA' &&  obj.PRCT_ATND_IMG1_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG1_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+  <button *ngIf="obj.PRCT_ATND_IMG2_PDF !== null && obj.PRCT_ATND_IMG2_PDF !== 'NA' &&  obj.PRCT_ATND_IMG2_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG2_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+ <button *ngIf="obj.PRCT_ATND_IMG3_PDF !== null && obj.PRCT_ATND_IMG3_PDF !== 'NA' &&  obj.PRCT_ATND_IMG3_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG3_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+ <button *ngIf="obj.PRCT_ATND_IMG4_PDF !== null && obj.PRCT_ATND_IMG4_PDF !== 'NA' &&  obj.PRCT_ATND_IMG4_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG4_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+  
+</td>
+
+  
+  
+  
+
+
+  <td style="text-align: center;">{{obj.SUB_DATE}}</td>
+  <td style="text-align: left;">{{obj.STATUS}}</td> 
+               
+
+               
+   <!-- Actions -->
+              <td class="d-flex justify-content-between" style="text-align: center;margin-top: 100px !important;">
+                <button class="btn-sm btn-success fa fa-check text-white btncls" (click)="btnUpdateDetails(obj)"
+                  title="Approve Indent Details" pTooltip="Approve" tooltipPosition="top">
+                </button>&nbsp; &nbsp;
+
+                <button class="btn-sm btn-danger fa fa-times text-white btncls" (click)="btnRejectDetails(obj)"
+                  title="Reject Indent Details" pTooltip="Reject" tooltipPosition="top">
+                </button>&nbsp; &nbsp;
+
+                 <button class="btn-sm btn-primary fa-check text-white btncls" (click)="btnRemarksDetails(obj)"
+                  title="Remarks Details" pTooltip="Remarks" tooltipPosition="top">
+                </button>&nbsp; &nbsp;
+
+              </td>
+             
+            </tr>
+          </ng-template>
+        </p-table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ADDITIONAL INFORMATION TABLE -->
+<div *ngIf="ADDINFO_div">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+            <h5 class="mb-0">ADDITIONAL INFORMATION  LIST</h5>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+
+        <p-table id="tbltable" [value]="jobDetailsListaddinf" [paginator]="true" [rows]="jobDetailsListaddinf.length" #dt2
+          [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
+            [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
+          styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
+          [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}" [scrollable]="true" sortMode="multiple"
+          scrollHeight="560px">
+          <ng-template pTemplate="caption">
+            <div class="row">
+              <div class="col-md-8"></div>
+              <div class="col-md-4" [hidden]="jobDetailsListaddinf?.length < 1">
+                <button type="button" (click)="exportTable_ToPDF('tbltable','Training  Additional Information Requested')"
+                  class="btn btn-danger btn-sm pull-right" pTooltip="PDF" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>PDF</button>
+                <button type="button" (click)="exportTable_toexcel('tbltable','Training  Additional Information Requested')"
+                  class="btn btn-success btn-sm pull-right" pTooltip="XLS" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>EXCEL</button>
+
+ 
+
+
+                <span class="p-input-icon-left search-container">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                    placeholder="Search keyword" class="search-input" />
+                </span>
+
+              </div>
+            </div>
+          </ng-template>
+
+          
+
+          
+
+   <ng-template pTemplate="header">
+            <tr>
+               
+  <th  class="bgc">S.No</th>
+            <th  class="bgc">DISTRICT</th>
+  <th  class="bgc">TRAINING TYPE</th>
+  <th  class="bgc">TRAINING DATE</th>
+  <th  class="bgc">TRAINING TIME</th>
+  <th  class="bgc">VENU</th>
+  <th  class="bgc">VILLAGES</th>
+  <th  class="bgc">NO OF SPEAKERS</th>
+  <th  class="bgc">NO OF PARTICIPANTS</th>
+  <th  class="bgc">EXPENDITURE</th>
+  <th  class="bgc">COST/PARTICIPANT</th>
+  <th  class="bgc" style="text-align: center;">DOCUMENTS</th>
+  
+  <th  class="bgc"     style="text-align: center;font-size: 13px;    word-wrap: normal;">SPEAKER IMAGES</th>
+    <th  class="bgc"     style="text-align: center;font-size: 13px;    word-wrap: normal;">PARTICIPANT IMAGES</th>
+  
+  <th  class="bgc">SUBMITTED DATE</th>
+  <th  class="bgc">STATUS</th> 
+
+             
+            </tr> 
+           
+    <tr>
+<th  class="bgc" style="text-align: center;"  > 1 </th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="DISTRICT"> 2<p-sortIcon  field="DISTRICT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_ID"> 3<p-sortIcon  field="TRAINING_ID"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_DATE"> 4<p-sortIcon   field="TRAINING_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_TIME"> 5<p-sortIcon  field="TRAINING_TIME"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 6<p-sortIcon   field="VENU" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 7<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 8<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 9<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 10<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 11<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 12 </th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 14</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 15<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 16<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
+ 
+
+    </tr> 
+              
+            
+          </ng-template>
+		  
+
+
+          <ng-template pTemplate="body" let-obj let-i="rowIndex">
+           <tr>
+                
+             <td style="text-align: right;">{{i + 1}}</td>
+               <td style="white-space: normal; text-align:  left !important;">{{ obj.DISTRICT}}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{ obj.TRAINING_ID }}</td>
+              <td style="white-space: normal; text-align:  center !important;">{{obj.TRAINING_DATE.substring(0, 10)  }}</td>
+              <td style="text-align:  right !important;">{{obj.TRAINING_TIME}}</td>
+               <td style="white-space: normal; text-align:  left !important;">{{obj.VENU}}</td>
+                <td style="white-space: normal; text-align:  left !important;">{{obj.VILLAGES}}</td>
+
+              <td style="text-align:  right !important;">{{obj.NO_OF_SPEAKERS}}</td>
+  <td style="text-align:  right !important;">{{obj.NO_OF_PARTICIPANT}}</td>
+  <td style="text-align:  right !important;">{{obj.EXPENDITURE}}</td>
+  <td style="text-align:  right !important;">{{obj.COST_PER_PARTICIPANT}}</td> 
+
+
+<td style="text-align: center;">  
+
+  <button  *ngIf="obj.ATND_PDF !== null && obj.ATND_PDF !== 'NA' &&  obj.ATND_PDF !== undefined "
+    (click)="btnPdfView(obj.ATND_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> ATTENDANCE
+</button>
+
+    <br /><br /> 
+ 
+
+    <button *ngIf="obj.HONORARIUM_TA_BILL_PDF !== null && obj.HONORARIUM_TA_BILL_PDF !== 'NA' &&  obj.HONORARIUM_TA_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.HONORARIUM_TA_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> HONORARIUM TA BILL
+</button>
+
+   <br /><br /> 
+
+ 
+
+   <button *ngIf="obj.REFRESHMENT_BILL_PDF !== null && obj.REFRESHMENT_BILL_PDF !== 'NA' &&  obj.REFRESHMENT_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.REFRESHMENT_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> REFRESHMENT BILL
+</button>
+ <br /><br /> 
+ 
+
+  <button *ngIf="obj.STATIONARY_TRN_BILL_PDF !== null && obj.STATIONARY_TRN_BILL_PDF !== 'NA' &&  obj.STATIONARY_TRN_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.STATIONARY_TRN_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> STATIONARY TRN BILL
+</button>
+ 
+                 <span  *ngIf="obj.STATIONARY_TRN_BILL_PDF === null ||  obj.STATIONARY_TRN_BILL_PDF === 'NA' ||  obj.STATIONARY_TRN_BILL_PDF === undefined" >NA</span >
+
+</td>
+ 
+
+<td style="text-align: center;"> 
+
+   
+
+
+ <button *ngIf="obj.SPEAKER_IMG1_PDF !== null && obj.SPEAKER_IMG1_PDF !== 'NA' &&  obj.SPEAKER_IMG1_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG1_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+
+
+ 
+<br /><br /> 
+
+<button *ngIf="obj.SPEAKER_IMG2_PDF !== null && obj.SPEAKER_IMG2_PDF !== 'NA' &&  obj.SPEAKER_IMG2_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG2_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+ 
+<br /><br />
+
+<button *ngIf="obj.SPEAKER_IMG3_PDF !== null && obj.SPEAKER_IMG3_PDF !== 'NA' &&  obj.SPEAKER_IMG3_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG3_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+
+ 
+     <br /><br />           
+
+     <button *ngIf="obj.SPEAKER_IMG4_PDF !== null && obj.SPEAKER_IMG4_PDF !== 'NA' &&  obj.SPEAKER_IMG4_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG4_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+ 
+</td>
+ 
+
+
+<td style="text-align: center;"> 
+
+
+  <button *ngIf="obj.PRCT_ATND_IMG1_PDF !== null && obj.PRCT_ATND_IMG1_PDF !== 'NA' &&  obj.PRCT_ATND_IMG1_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG1_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+  <button *ngIf="obj.PRCT_ATND_IMG2_PDF !== null && obj.PRCT_ATND_IMG2_PDF !== 'NA' &&  obj.PRCT_ATND_IMG2_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG2_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+ <button *ngIf="obj.PRCT_ATND_IMG3_PDF !== null && obj.PRCT_ATND_IMG3_PDF !== 'NA' &&  obj.PRCT_ATND_IMG3_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG3_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+ <button *ngIf="obj.PRCT_ATND_IMG4_PDF !== null && obj.PRCT_ATND_IMG4_PDF !== 'NA' &&  obj.PRCT_ATND_IMG4_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG4_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+  
+</td>
+
+  
+  
+  
+
+
+  <td style="text-align: center;">{{obj.SUB_DATE}}</td>
+  <td style="text-align: left;">{{obj.STATUS}}</td> 
+            </tr>
+          </ng-template>
+        </p-table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- RESUBMITTED TABLE -->
+<div *ngIf="RESUBMITTED_div">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+            <h5 class="mb-0">RESUBMITTED LIST</h5>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+
+        <p-table id="tbltable" [value]="jobDetailsListresub" [paginator]="true" [rows]="jobDetailsListresub.length" #dt2
+          [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
+            [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
+          styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
+          [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}" [scrollable]="true" sortMode="multiple"
+          scrollHeight="560px">
+          <ng-template pTemplate="caption">
+            <div class="row">
+              <div class="col-md-8"></div>
+              <div class="col-md-4" [hidden]="jobDetailsListresub?.length < 1">
+                <button type="button" (click)="exportTable_ToPDF('tbltable','Training Resubmitted Details')"
+                  class="btn btn-danger btn-sm pull-right" pTooltip="PDF" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>PDF</button>
+                <button type="button" (click)="exportTable_toexcel('tbltable','Training Resubmitted Details')"
+                  class="btn btn-success btn-sm pull-right" pTooltip="XLS" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>EXCEL</button>
+
+ 
+
+
+                <span class="p-input-icon-left search-container">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                    placeholder="Search keyword" class="search-input" />
+                </span>
+
+              </div>
+            </div>
+          </ng-template>
+
+          
+          
+  <ng-template pTemplate="header">
+            <tr>
+               
+  <th  class="bgc">S.No</th>
+            <th  class="bgc">DISTRICT</th>
+  <th  class="bgc">TRAINING TYPE</th>
+  <th  class="bgc">TRAINING DATE</th>
+  <th  class="bgc">TRAINING TIME</th>
+  <th  class="bgc">VENU</th>
+  <th  class="bgc">VILLAGES</th>
+  <th  class="bgc">NO OF SPEAKERS</th>
+  <th  class="bgc">NO OF PARTICIPANTS</th>
+  <th  class="bgc">EXPENDITURE</th>
+  <th  class="bgc">COST/PARTICIPANT</th>
+  <th  class="bgc" style="text-align: center;">DOCUMENTS</th>
+  
+  <th  class="bgc"     style="text-align: center;font-size: 13px;    word-wrap: normal;">SPEAKER IMAGES</th>
+    <th  class="bgc"     style="text-align: center;font-size: 13px;    word-wrap: normal;">PARTICIPANT IMAGES</th>
+  
+  <th  class="bgc">SUBMITTED DATE</th>
+  <th  class="bgc">STATUS</th> 
+<th  class="bgc">ACTION</th> 
+             
+            </tr> 
+           
+    <tr>
+<th  class="bgc" style="text-align: center;"  > 1 </th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="DISTRICT"> 2<p-sortIcon  field="DISTRICT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_ID"> 3<p-sortIcon  field="TRAINING_ID"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_DATE"> 4<p-sortIcon   field="TRAINING_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_TIME"> 5<p-sortIcon  field="TRAINING_TIME"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 6<p-sortIcon   field="VENU" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 7<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 8<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 9<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 10<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 11<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 12 </th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 14</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 15<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 16<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
+ <th  class="bgc" style="text-align: center;" > 17<p-sortIcon style="color: white !important;" /></th>
+
+    </tr> 
+              
+            
+          </ng-template>
+		  
+
+          <ng-template pTemplate="body" let-obj let-i="rowIndex">
+            <tr>
+          
+                <td style="text-align: right;">{{i + 1}}</td>
+               <td style="white-space: normal; text-align:  left !important;">{{ obj.DISTRICT}}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{ obj.TRAINING_ID }}</td>
+              <td style="white-space: normal; text-align:  center !important;">{{obj.TRAINING_DATE.substring(0, 10)  }}</td>
+              <td style="text-align:  right !important;">{{obj.TRAINING_TIME}}</td>
+               <td style="white-space: normal; text-align:  left !important;">{{obj.VENU}}</td>
+                <td style="white-space: normal; text-align:  left !important;">{{obj.VILLAGES}}</td>
+
+              <td style="text-align:  right !important;">{{obj.NO_OF_SPEAKERS}}</td>
+  <td style="text-align:  right !important;">{{obj.NO_OF_PARTICIPANT}}</td>
+  <td style="text-align:  right !important;">{{obj.EXPENDITURE}}</td>
+  <td style="text-align:  right !important;">{{obj.COST_PER_PARTICIPANT}}</td> 
+
+
+<td style="text-align: center;">  
+
+  <button  *ngIf="obj.ATND_PDF !== null && obj.ATND_PDF !== 'NA' &&  obj.ATND_PDF !== undefined "
+    (click)="btnPdfView(obj.ATND_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> ATTENDANCE
+</button>
+
+    <br /><br /> 
+ 
+
+    <button *ngIf="obj.HONORARIUM_TA_BILL_PDF !== null && obj.HONORARIUM_TA_BILL_PDF !== 'NA' &&  obj.HONORARIUM_TA_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.HONORARIUM_TA_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> HONORARIUM TA BILL
+</button>
+
+   <br /><br /> 
+
+ 
+
+   <button *ngIf="obj.REFRESHMENT_BILL_PDF !== null && obj.REFRESHMENT_BILL_PDF !== 'NA' &&  obj.REFRESHMENT_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.REFRESHMENT_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> REFRESHMENT BILL
+</button>
+ <br /><br /> 
+ 
+
+  <button *ngIf="obj.STATIONARY_TRN_BILL_PDF !== null && obj.STATIONARY_TRN_BILL_PDF !== 'NA' &&  obj.STATIONARY_TRN_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.STATIONARY_TRN_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> STATIONARY TRN BILL
+</button>
+ 
+                 <span  *ngIf="obj.STATIONARY_TRN_BILL_PDF === null ||  obj.STATIONARY_TRN_BILL_PDF === 'NA' ||  obj.STATIONARY_TRN_BILL_PDF === undefined" >NA</span >
+
+</td>
+ 
+
+<td style="text-align: center;"> 
+
+   
+
+
+ <button *ngIf="obj.SPEAKER_IMG1_PDF !== null && obj.SPEAKER_IMG1_PDF !== 'NA' &&  obj.SPEAKER_IMG1_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG1_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+
+
+ 
+<br /><br /> 
+
+<button *ngIf="obj.SPEAKER_IMG2_PDF !== null && obj.SPEAKER_IMG2_PDF !== 'NA' &&  obj.SPEAKER_IMG2_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG2_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+ 
+<br /><br />
+
+<button *ngIf="obj.SPEAKER_IMG3_PDF !== null && obj.SPEAKER_IMG3_PDF !== 'NA' &&  obj.SPEAKER_IMG3_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG3_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+
+ 
+     <br /><br />           
+
+     <button *ngIf="obj.SPEAKER_IMG4_PDF !== null && obj.SPEAKER_IMG4_PDF !== 'NA' &&  obj.SPEAKER_IMG4_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG4_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+ 
+</td>
+ 
+
+
+<td style="text-align: center;"> 
+
+
+  <button *ngIf="obj.PRCT_ATND_IMG1_PDF !== null && obj.PRCT_ATND_IMG1_PDF !== 'NA' &&  obj.PRCT_ATND_IMG1_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG1_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+  <button *ngIf="obj.PRCT_ATND_IMG2_PDF !== null && obj.PRCT_ATND_IMG2_PDF !== 'NA' &&  obj.PRCT_ATND_IMG2_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG2_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+ <button *ngIf="obj.PRCT_ATND_IMG3_PDF !== null && obj.PRCT_ATND_IMG3_PDF !== 'NA' &&  obj.PRCT_ATND_IMG3_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG3_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+ <button *ngIf="obj.PRCT_ATND_IMG4_PDF !== null && obj.PRCT_ATND_IMG4_PDF !== 'NA' &&  obj.PRCT_ATND_IMG4_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG4_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+  
+</td>
+
+  
+  
+  
+
+
+  <td style="text-align: center;">{{obj.SUB_DATE}}</td>
+  <td style="text-align: left;">{{obj.STATUS}}</td> 
+
+   <!-- Actions -->
+              <td class="d-flex justify-content-between" style="margin-top: 100px !important;">
+                <button class="btn-sm btn-success fa fa-check text-white btncls" (click)="btnResubApprovedDetails(obj)"
+                  title="Approve Indent Details" pTooltip="Approve" tooltipPosition="top">
+                </button>&nbsp; &nbsp; 
+                  <button class="btn-sm btn-primary fa-check text-white btncls" (click)="btnRemarks2Details(obj)"
+                  title="Remarks Details" pTooltip="Remarks" tooltipPosition="top">
+                </button>&nbsp; &nbsp;
+
+              </td>
+
+            </tr>
+          </ng-template>
+        </p-table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- APPROVED TABLE -->
+<div *ngIf="APPROVED_div">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+            <h5 class="mb-0">APPROVED LIST</h5>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p-table id="tbltable" [value]="jobDetailsListA" [paginator]="true" [rows]="jobDetailsListA.length" #dt2
+          [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
+           [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
+          styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
+          [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}" [scrollable]="true" sortMode="multiple"
+          scrollHeight="560px">
+
+          <ng-template pTemplate="caption"> 
+            <div class="row">
+              <div class="col-md-8"></div>
+              <div class="col-md-4" [hidden]="jobDetailsListA?.length < 1">
+                <button type="button" (click)="exportTable_ToPDF('tbltable','Training Approved Details')"
+                  class="btn btn-danger btn-sm pull-right" pTooltip="PDF" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>PDF</button>
+                <button type="button" (click)="exportTable_toexcel('tbltable','Training Approved Details')"
+                  class="btn btn-success btn-sm pull-right" pTooltip="XLS" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>EXCEL</button>
+                <span class="p-input-icon-left search-container">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                    placeholder="Search keyword" class="search-input" />
+                </span>
+
+              </div>
+            </div>
+          </ng-template>
+
+
+           <ng-template pTemplate="header">
+            <tr>
+               
+  <th  class="bgc">S.No</th>
+            <th  class="bgc">DISTRICT</th>
+  <th  class="bgc">TRAINING TYPE</th>
+  <th  class="bgc">TRAINING DATE</th>
+  <th  class="bgc">TRAINING TIME</th>
+  <th  class="bgc">VENU</th>
+  <th  class="bgc">VILLAGES</th>
+  <th  class="bgc">NO OF SPEAKERS</th>
+  <th  class="bgc">NO OF PARTICIPANTS</th>
+  <th  class="bgc">EXPENDITURE</th>
+  <th  class="bgc">COST/PARTICIPANT</th>
+  <th  class="bgc" style="text-align: center;">DOCUMENTS</th>
+  
+  <th  class="bgc"     style="text-align: center;font-size: 13px;    word-wrap: normal;">SPEAKER IMAGES</th>
+    <th  class="bgc"     style="text-align: center;font-size: 13px;    word-wrap: normal;">PARTICIPANT IMAGES</th>
+  
+  <th  class="bgc">SUBMITTED DATE</th>
+  <th  class="bgc">STATUS</th> 
+
+             
+            </tr> 
+           
+    <tr>
+<th  class="bgc" style="text-align: center;"  > 1 </th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="DISTRICT"> 2<p-sortIcon  field="DISTRICT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_ID"> 3<p-sortIcon  field="TRAINING_ID"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_DATE"> 4<p-sortIcon   field="TRAINING_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_TIME"> 5<p-sortIcon  field="TRAINING_TIME"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 6<p-sortIcon   field="VENU" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 7<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 8<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 9<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 10<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 11<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 12 </th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 14</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 15<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 16<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
+ 
+
+    </tr> 
+              
+            
+          </ng-template>
+		  
+
+
+          <ng-template pTemplate="body" let-obj let-i="rowIndex">
+           <tr>
+                
+             <td style="text-align: right;">{{i + 1}}</td>
+               <td style="white-space: normal; text-align:  left !important;">{{ obj.DISTRICT}}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{ obj.TRAINING_ID }}</td>
+              <td style="white-space: normal; text-align:  center !important;">{{obj.TRAINING_DATE.substring(0, 10)  }}</td>
+              <td style="text-align:  right !important;">{{obj.TRAINING_TIME}}</td>
+               <td style="white-space: normal; text-align:  left !important;">{{obj.VENU}}</td>
+                <td style="white-space: normal; text-align:  left !important;">{{obj.VILLAGES}}</td>
+
+              <td style="text-align:  right !important;">{{obj.NO_OF_SPEAKERS}}</td>
+  <td style="text-align:  right !important;">{{obj.NO_OF_PARTICIPANT}}</td>
+  <td style="text-align:  right !important;">{{obj.EXPENDITURE}}</td>
+  <td style="text-align:  right !important;">{{obj.COST_PER_PARTICIPANT}}</td> 
+
+
+<td style="text-align: center;">  
+
+  <button  *ngIf="obj.ATND_PDF !== null && obj.ATND_PDF !== 'NA' &&  obj.ATND_PDF !== undefined "
+    (click)="btnPdfView(obj.ATND_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> ATTENDANCE
+</button>
+
+    <br /><br /> 
+ 
+
+    <button *ngIf="obj.HONORARIUM_TA_BILL_PDF !== null && obj.HONORARIUM_TA_BILL_PDF !== 'NA' &&  obj.HONORARIUM_TA_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.HONORARIUM_TA_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> HONORARIUM TA BILL
+</button>
+
+   <br /><br /> 
+
+ 
+
+   <button *ngIf="obj.REFRESHMENT_BILL_PDF !== null && obj.REFRESHMENT_BILL_PDF !== 'NA' &&  obj.REFRESHMENT_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.REFRESHMENT_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> REFRESHMENT BILL
+</button>
+ <br /><br /> 
+ 
+
+  <button *ngIf="obj.STATIONARY_TRN_BILL_PDF !== null && obj.STATIONARY_TRN_BILL_PDF !== 'NA' &&  obj.STATIONARY_TRN_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.STATIONARY_TRN_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> STATIONARY TRN BILL
+</button>
+ 
+                 <span  *ngIf="obj.STATIONARY_TRN_BILL_PDF === null ||  obj.STATIONARY_TRN_BILL_PDF === 'NA' ||  obj.STATIONARY_TRN_BILL_PDF === undefined" >NA</span >
+
+</td>
+ 
+
+<td style="text-align: center;"> 
+
+   
+
+
+ <button *ngIf="obj.SPEAKER_IMG1_PDF !== null && obj.SPEAKER_IMG1_PDF !== 'NA' &&  obj.SPEAKER_IMG1_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG1_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+
+
+ 
+<br /><br /> 
+
+<button *ngIf="obj.SPEAKER_IMG2_PDF !== null && obj.SPEAKER_IMG2_PDF !== 'NA' &&  obj.SPEAKER_IMG2_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG2_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+ 
+<br /><br />
+
+<button *ngIf="obj.SPEAKER_IMG3_PDF !== null && obj.SPEAKER_IMG3_PDF !== 'NA' &&  obj.SPEAKER_IMG3_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG3_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+
+ 
+     <br /><br />           
+
+     <button *ngIf="obj.SPEAKER_IMG4_PDF !== null && obj.SPEAKER_IMG4_PDF !== 'NA' &&  obj.SPEAKER_IMG4_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG4_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+ 
+</td>
+ 
+
+
+<td style="text-align: center;"> 
+
+
+  <button *ngIf="obj.PRCT_ATND_IMG1_PDF !== null && obj.PRCT_ATND_IMG1_PDF !== 'NA' &&  obj.PRCT_ATND_IMG1_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG1_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+  <button *ngIf="obj.PRCT_ATND_IMG2_PDF !== null && obj.PRCT_ATND_IMG2_PDF !== 'NA' &&  obj.PRCT_ATND_IMG2_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG2_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+ <button *ngIf="obj.PRCT_ATND_IMG3_PDF !== null && obj.PRCT_ATND_IMG3_PDF !== 'NA' &&  obj.PRCT_ATND_IMG3_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG3_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+ <button *ngIf="obj.PRCT_ATND_IMG4_PDF !== null && obj.PRCT_ATND_IMG4_PDF !== 'NA' &&  obj.PRCT_ATND_IMG4_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG4_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+  
+</td>
+
+  
+  
+  
+
+
+  <td style="text-align: center;">{{obj.SUB_DATE}}</td>
+  <td style="text-align: left;">{{obj.STATUS}}</td> 
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- REJECTED TABLE -->
+<div *ngIf="REJECTED_div">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+            <h5 class="mb-0">REJECTED LIST</h5>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+
+
+
+        <p-table id="tbltable" [value]="jobDetailsListR" [paginator]="true" [rows]="jobDetailsListR.length" #dt2
+          [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
+           [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
+          styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
+          [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}" [scrollable]="true" sortMode="multiple"
+          scrollHeight="560px">
+
+          <ng-template pTemplate="caption">
+            <div class="row">
+              <div class="col-md-8"></div>
+              <div class="col-md-4" [hidden]="jobDetailsListR?.length < 1">
+                <button type="button" (click)="exportTable_ToPDF('tbltable','Training Rejected Details')"
+                  class="btn btn-danger btn-sm pull-right" pTooltip="PDF" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>PDF</button>
+                <button type="button" (click)="exportTable_toexcel('tbltable','Training Rejected Details')"
+                  class="btn btn-success btn-sm pull-right" pTooltip="XLS" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>EXCEL</button>
+                <span class="p-input-icon-left search-container">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                    placeholder="Search keyword" class="search-input" />
+                </span>
+
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- <ng-template pTemplate="header">
+            <tr>
+              <tr>
+              <th rowspan="2">S.No</th> 
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="MEETING_ID">MEETING ID <p-sortIcon field="MEETING_ID" />              </th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="TRAINING_ID">TRAINING TYPE <p-sortIcon field="TRAINING_ID" /></th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="TRAINING_DATE">TRAINING DATE <p-sortIcon field="TRAINING_DATE" /></th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="TRAINING_TIME">TRAINING TIME <p-sortIcon field="TRAINING_TIME" /></th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT">NO OF PARTICIPANT <p-sortIcon field="NO_OF_PARTICIPANT" /> </th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="EXPENDITURE">EXPENDITURE <p-sortIcon field="EXPENDITURE" /></th>
+              <th rowspan="2"  style="text-align: center;" pSortableColumn="SUB_DATE">SUBMITTED DATE <p-sortIcon field="SUB_DATE" /></th> 
+              <th rowspan="2" pSortableColumn="STATUS"style="text-align: center;"> STATUS <p-sortIcon field="STATUS" /></th> 
+            </tr>
+          </ng-template> -->
+
+          
+
+ <ng-template pTemplate="header">
+            <tr>
+               
+  <th  class="bgc">S.No</th>
+            <th  class="bgc">DISTRICT</th>
+  <th  class="bgc">TRAINING TYPE</th>
+  <th  class="bgc">TRAINING DATE</th>
+  <th  class="bgc">TRAINING TIME</th>
+  <th  class="bgc">VENU</th>
+  <th  class="bgc">VILLAGES</th>
+  <th  class="bgc">NO OF SPEAKERS</th>
+  <th  class="bgc">NO OF PARTICIPANTS</th>
+  <th  class="bgc">EXPENDITURE</th>
+  <th  class="bgc">COST/PARTICIPANT</th>
+  <th  class="bgc" style="text-align: center;">DOCUMENTS</th>
+  
+  <th  class="bgc"     style="text-align: center;font-size: 13px;    word-wrap: normal;">SPEAKER IMAGES</th>
+    <th  class="bgc"     style="text-align: center;font-size: 13px;    word-wrap: normal;">PARTICIPANT IMAGES</th>
+  
+  <th  class="bgc">SUBMITTED DATE</th>
+  <th  class="bgc">STATUS</th> 
+
+             
+            </tr> 
+           
+    <tr>   
+<th  class="bgc" style="text-align: center;"  > 1 </th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="DISTRICT"> 2<p-sortIcon  field="DISTRICT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_ID"> 3<p-sortIcon  field="TRAINING_ID"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_DATE"> 4<p-sortIcon   field="TRAINING_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_TIME"> 5<p-sortIcon  field="TRAINING_TIME"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 6<p-sortIcon   field="VENU" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 7<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 8<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 9<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 10<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 11<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 12 </th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 14</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 15<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 16<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
+ 
+
+    </tr> 
+              
+            
+          </ng-template>
+		  
+
+
+          <ng-template pTemplate="body" let-obj let-i="rowIndex">
+           <tr>
+                
+             <td style="text-align: right;">{{i + 1}}</td>
+               <td style="white-space: normal; text-align:  left !important;">{{ obj.DISTRICT}}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{ obj.TRAINING_ID }}</td>
+              <td style="white-space: normal; text-align:  center !important;">{{obj.TRAINING_DATE.substring(0, 10)  }}</td>
+              <td style="text-align:  right !important;">{{obj.TRAINING_TIME}}</td>
+               <td style="white-space: normal; text-align:  left !important;">{{obj.VENU}}</td>
+                <td style="white-space: normal; text-align:  left !important;">{{obj.VILLAGES}}</td>
+
+              <td style="text-align:  right !important;">{{obj.NO_OF_SPEAKERS}}</td>
+  <td style="text-align:  right !important;">{{obj.NO_OF_PARTICIPANT}}</td>
+  <td style="text-align:  right !important;">{{obj.EXPENDITURE}}</td>
+  <td style="text-align:  right !important;">{{obj.COST_PER_PARTICIPANT}}</td> 
+
+
+<td style="text-align: center;">  
+
+  <button  *ngIf="obj.ATND_PDF !== null && obj.ATND_PDF !== 'NA' &&  obj.ATND_PDF !== undefined "
+    (click)="btnPdfView(obj.ATND_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> ATTENDANCE
+</button>
+
+    <br /><br /> 
+ 
+
+    <button *ngIf="obj.HONORARIUM_TA_BILL_PDF !== null && obj.HONORARIUM_TA_BILL_PDF !== 'NA' &&  obj.HONORARIUM_TA_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.HONORARIUM_TA_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> HONORARIUM TA BILL
+</button>
+
+   <br /><br /> 
+
+ 
+
+   <button *ngIf="obj.REFRESHMENT_BILL_PDF !== null && obj.REFRESHMENT_BILL_PDF !== 'NA' &&  obj.REFRESHMENT_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.REFRESHMENT_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> REFRESHMENT BILL
+</button>
+ <br /><br /> 
+ 
+
+  <button *ngIf="obj.STATIONARY_TRN_BILL_PDF !== null && obj.STATIONARY_TRN_BILL_PDF !== 'NA' &&  obj.STATIONARY_TRN_BILL_PDF !== undefined "
+    (click)="btnPdfView(obj.STATIONARY_TRN_BILL_PDF)" 
+    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> STATIONARY TRN BILL
+</button>
+ 
+                 <span  *ngIf="obj.STATIONARY_TRN_BILL_PDF === null ||  obj.STATIONARY_TRN_BILL_PDF === 'NA' ||  obj.STATIONARY_TRN_BILL_PDF === undefined" >NA</span >
+
+</td>
+ 
+
+<td style="text-align: center;"> 
+
+   
+
+
+ <button *ngIf="obj.SPEAKER_IMG1_PDF !== null && obj.SPEAKER_IMG1_PDF !== 'NA' &&  obj.SPEAKER_IMG1_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG1_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+
+
+ 
+<br /><br /> 
+
+<button *ngIf="obj.SPEAKER_IMG2_PDF !== null && obj.SPEAKER_IMG2_PDF !== 'NA' &&  obj.SPEAKER_IMG2_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG2_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+ 
+<br /><br /> 
+
+<button *ngIf="obj.SPEAKER_IMG3_PDF !== null && obj.SPEAKER_IMG3_PDF !== 'NA' &&  obj.SPEAKER_IMG3_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG3_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+
+ 
+     <br /><br />           
+
+     <button *ngIf="obj.SPEAKER_IMG4_PDF !== null && obj.SPEAKER_IMG4_PDF !== 'NA' &&  obj.SPEAKER_IMG4_PDF !== undefined "
+    (click)="btnImgView(obj.SPEAKER_IMG4_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+ 
+</td>
+ 
+
+
+<td style="text-align: center;"> 
+
+
+  <button *ngIf="obj.PRCT_ATND_IMG1_PDF !== null && obj.PRCT_ATND_IMG1_PDF !== 'NA' &&  obj.PRCT_ATND_IMG1_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG1_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+  <button *ngIf="obj.PRCT_ATND_IMG2_PDF !== null && obj.PRCT_ATND_IMG2_PDF !== 'NA' &&  obj.PRCT_ATND_IMG2_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG2_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+ <button *ngIf="obj.PRCT_ATND_IMG3_PDF !== null && obj.PRCT_ATND_IMG3_PDF !== 'NA' &&  obj.PRCT_ATND_IMG3_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG3_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+<br /><br />
+ <button *ngIf="obj.PRCT_ATND_IMG4_PDF !== null && obj.PRCT_ATND_IMG4_PDF !== 'NA' &&  obj.PRCT_ATND_IMG4_PDF !== undefined "
+    (click)="btnImgView(obj.PRCT_ATND_IMG4_PDF)" 
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    word-wrap: normal;">
+    <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> Image
+</button>
+  
+</td>
+
+  
+  
+  
+
+
+  <td style="text-align: center;">{{obj.SUB_DATE}}</td> 
+  <td style="text-align: left;">{{obj.STATUS}}</td> 
+            </tr>
+          </ng-template>
+        </p-table>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- APPROVAL/REJECTION POPUP -->
+<div class="popup-modal" *ngIf="showaprovedPopup">
+  <div class="popup-content" style="min-width: 75%">
+    <div class="popup-header" [ngClass]="{'color-redbg':message=='REJECT','color-greenbg':message=='APPROVE','color-greenbg':message=='REMARKS','color-greenbg':message=='RESUBMIT_APPROVE','color-redbg':message=='RESUBMIT_REJECT'}">
+      <h4 class="title"></h4>
+      <a type="button" class="close" style="cursor: pointer">
+        <span (click)="onClear()">×</span>
+      </a>
+    </div>
+
+    <div class="popup-body" style="max-height:500px; overflow-y: auto;">
+      <div class="row justify-content-center align-items-center">
+        <div [ngClass]="{'color-red':message=='REJECT','color-green':message=='APPROVE','color-greenbg':message=='REMARKS','color-greenbg':message=='RESUBMIT_APPROVE','color-redbg':message=='RESUBMIT_REJECT'}"><b>{{message}}</b></div>
+
+        <div class="col-md-12 row" *ngIf="status1">
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+            <label class="text-center text-danger">Record Delete</label>
+          </div>
+        </div>
+
+        <div class="col-md-12 row" *ngIf="status2">
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+            <label for="district">Old Batch No <span style="color: red">*</span></label>
+            <input type="text" class="form-control" [(ngModel)]="oldBatchNumber" disabled>
+          </div>
+          <div class="col-md-5">
+            <label for="stockpoint">New Batch No <span style="color: red">*</span></label>
+            <input type="text" class="form-control" [(ngModel)]="newBatchNumber" disabled>
+          </div>
+        </div>
+
+        <div class="col-md-12 row" *ngIf="status3">
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+            <label for="district">Old Packet Type <span style="color: red">*</span></label>
+            <input type="text" class="form-control" [(ngModel)]="oldPacketType" disabled>
+          </div>
+          <div class="col-md-5">
+            <label for="stockpoint">New Batch NoPacket Type <span style="color: red">*</span></label>
+            <input type="text" class="form-control" [(ngModel)]="newPacketType" disabled>
+          </div>
+        </div>
+
+        <div class="col-md-12 row" *ngIf="status4">
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+            <label for="district">DISTRICT NAME <span style="color: red">*</span></label>
+            <input type="text" class="form-control" [(ngModel)]="DistrictName" disabled>
+          </div>
+          <div class="col-md-5">
+            <label for="stockpoint">STOCK POINT NAME <span style="color: red">*</span></label>
+            <input type="text" class="form-control" [(ngModel)]="StockpointName" disabled>
+          </div>
+        </div>
+
+        <div class="col-md-12 row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <label for="district">REMARKS <span style="color: red">*</span></label>
+            <textarea type="text" class="form-control" maxlength="500" [(ngModel)]="Remarks"></textarea>
+          </div>
+          <br>
+        </div>
+        <br>
+
+        <div class="popup-footer justify-content-center">
+          <button [ngClass]="{'color-redbg':message=='REJECT','color-greenbg':message=='APPROVE','color-btn-primary':message=='REMARKS','color-greenbg':message=='RESUBMIT_APPROVE','color-redbg':message=='RESUBMIT_REJECT'}" type="button"
+            class="btn btn-sm text-black" (click)="btnSubmitDetails()">
+            SUBMIT
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 

@@ -1,0 +1,147 @@
+
+ 
+
+
+<div class="container-fluid" >
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+           <div class="card-header">
+              <h4 class="card-title">BMCU PURCHASE-YEARLY-REPORT WORKS</h4>
+            </div>
+          <!-- <div class="card-body">
+                  <div>
+                      <div class="row" >
+                          <div class="col-md-12"> 
+
+                                <p> BMCU PURCHASE-YEARLY-REPORT         !!!!!!!!       </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+                <div class="card-body">
+                    <div class="col-md-12 table-responsive">
+                        <div class="row">
+                        <div class="col-md-12" align="right">
+                            <button type="button" class="btn btn-primary btn-sm" (click)="btnBack()">
+                              Back
+                            </button>
+                          </div>
+                        </div>
+         <div class="row">
+                        <table  class="table table-striped ah-table text-center"
+                         datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+        
+                            <thead class="bg-success text-white" style="border: 1px solid white;">
+                                   <tr >
+                                       <th  class="thclr">S NO</th>
+                                       <th  class="thclr" >District</th>
+                                       <th  class="thclr" >Mandal</th>
+                                       <th  class="thclr" >BMCU</th>         
+                                       <th  class="thclr">Invoice No</th>
+                                       <th  class="thclr" >Invoice </th>
+                                      
+                                       <th  class="thclr" >Way Bill  </th>
+                                       <th  class="thclr" >Equipment Loading  </th>
+        
+                                   </tr>
+                                   <tr>
+                                       <th   class="thclr">(1)</th>
+                                       <th  class="thclr">(2)</th>
+                                       <th   class="thclr">(3)</th>
+                                       <th   class="thclr">(4)</th>
+                                       <th   class="thclr">(5)</th>
+                                       <th  class="thclr">(6)</th>
+
+                                       <th   class="thclr">(7)</th>
+                                       <th  class="thclr">(8)</th>
+                                       
+                                  
+                                        
+                                   </tr>
+                               </thead>                               
+                               <tbody calss="table_cells_borders" *ngIf="BMCUList?.length > 0">
+                                           <!-- <tr *ngFor="let obj of BMCUEquipmentList; let i = index">
+                                               <td class="number_align">{{ i + 1 }}</td>
+                                               <td style="text-align: left; width: 200px;" class="table_cells_borders"> {{obj.DISTRICT_NAME}}</td>
+                                               <td style="text-align: left; width: 200px;" class="table_cells_borders"> {{obj.BMCU_NAME}}</td>
+                                               <td style="text-align: left; width: 200px;" class="table_cells_borders"> {{obj.EQUIPMENT_NAME}}</td>
+                                               <td style="text-align: left;" class="table_cells_borders"> {{obj.INVOICE_NUMBER}}</td>
+                                               <td style="text-align: left;" class="table_cells_borders"> {{obj.DEVICE_MAKER}}</td>
+                                               <td style="text-align: left;" class="table_cells_borders"> 
+                                                   <span *ngIf="obj.SERIAL_NUMBER_IMG !== '0' && obj.SERIAL_NUMBER_IMG !==undefined  &&  obj.SERIAL_NUMBER_IMG !== null">
+                                                        <button class="btn btn-sm btn-info block"
+                                                   (click)="btnAllPdf(obj.SERIAL_NUMBER_IMG)">
+                                                   <i>VIEW</i></button>
+                                                        </span> 
+                                                  <span *ngIf="obj.SERIAL_NUMBER_IMG === '0'  || obj.SERIAL_NUMBER_IMG ===undefined  ||  obj.SERIAL_NUMBER_IMG === null" >NA</span >    
+                                                    
+                                               </td>  
+                                               <td style="text-align: left;" class="table_cells_borders"> 
+                                                   <span *ngIf="obj.SERIAL_NUMBER_IMG !== '0' && obj.SERIAL_NUMBER_IMG !==undefined  &&  obj.SERIAL_NUMBER_IMG !== null">
+                                                        <button class="btn btn-sm btn-info block"
+                                                   (click)="btnAllPdf(obj.SERIAL_NUMBER_IMG)">
+                                                   <i>VIEW</i></button>
+                                                        </span> 
+                                                  <span *ngIf="obj.SERIAL_NUMBER_IMG === '0'  || obj.SERIAL_NUMBER_IMG ===undefined  ||  obj.SERIAL_NUMBER_IMG === null" >NA</span >    
+                                                    
+                                               </td>
+                                               <td style="text-align: left;" class="table_cells_borders"> 
+                                                
+                                                   <span *ngIf="obj.SERIAL_NUMBER_IMG !== '0' && obj.SERIAL_NUMBER_IMG !==undefined  &&  obj.SERIAL_NUMBER_IMG !== null">
+                                                        <button class="btn btn-sm btn-info block"
+                                                   (click)="btnAllPdf(obj.SERIAL_NUMBER_IMG)">
+                                                   <i>VIEW</i></button>
+                                                        </span> 
+                                                  <span *ngIf="obj.SERIAL_NUMBER_IMG === '0'  || obj.SERIAL_NUMBER_IMG ===undefined  ||  obj.SERIAL_NUMBER_IMG === null" >NA</span >    
+                                                    
+                                               </td>          
+                                            </tr> -->
+
+                                            <!-- <tbody calss="table_cells_borders" *ngIf="BMCUList?.length > 0"> -->
+                                                <tr *ngFor="let obj of BMCUList; let i=index;">
+
+                                                 
+                                                <td class="number_align">{{i+1}}</td>
+                                                <!-- <td style="text-align: right;" class="table_cells_borders">{{obj.FY}}</td> -->
+                                                <!-- <td style="text-align: right; width: 200px;" class="table_cells_borders"> 17</td> -->
+        
+                                                
+                                                <td style="text-align: left;" class="table_cells_borders">
+                                                      {{obj.DISTRICT_NAME}}</td> 
+        
+        
+                                                <td style="text-align: left; width: 200px;" class="table_cells_borders">  {{obj.MANDAL_NAME}}</td>
+                                                <td style="text-align: left; width: 200px;" class="table_cells_borders">  {{obj.BMCU_NAME}}    </td>
+                                                <td style="text-align: left; width: 200px;" class="table_cells_borders">  {{obj.INVOICE_NUMBER}}    </td>
+                                                <td style="text-align: center;" class="table_cells_borders">
+                                                    <span *ngIf="obj.INVOICE_PATH !== '0' && obj.INVOICE_PATH !==undefined  &&  obj.INVOICE_PATH !== null">
+                                                        <button class="btn btn-sm btn-info block"       (click)="btnAllPdf(obj.INVOICE_PATH,'INVOICENO_',obj.INVOICE_NUMBER)">    <i>VIEW</i></button>          </span> 
+                                                        <span *ngIf="obj.INVOICE_PATH === '0'  || obj.INVOICE_PATH ===undefined  ||  obj.INVOICE_PATH === null" >NA</span >    
+                                                    
+                                                </td>
+                                                <td style="text-align: center;" class="table_cells_borders">
+                                                     <span *ngIf="obj.WAYBILL !== '0' && obj.WAYBILL !==undefined  &&  obj.WAYBILL !== null">
+                                                    <button class="btn btn-sm btn-info block" (click)="btnAllPdf(obj.WAYBILL,'WAYBILL_',obj.INVOICE_NUMBER)"> <i>VIEW</i></button> </span> 
+                                                        <span *ngIf="obj.WAYBILL === '0'  || obj.WAYBILL ===undefined  ||  obj.WAYBILL === null" >NA</span >    
+                                                </td>
+                                                <td style="text-align: center;" class="table_cells_borders">  
+                                                    <span *ngIf="obj.EQUIPMENT_ID_LOAD_IMG !== '0' && obj.EQUIPMENT_ID_LOAD_IMG !==undefined  &&  obj.EQUIPMENT_ID_LOAD_IMG !== null">
+                                                    <button class="btn btn-sm btn-info block" (click)="btnAllPdf(obj.EQUIPMENT_ID_LOAD_IMG,'EQUIPMENT_',obj.INVOICE_NUMBER)"> <i>VIEW</i></button>  </span> 
+                                                    <span *ngIf="obj.EQUIPMENT_ID_LOAD_IMG === '0'  || obj.EQUIPMENT_ID_LOAD_IMG ===undefined  ||  obj.EQUIPMENT_ID_LOAD_IMG === null" >NA</span >    
+                                                </td>
+                                                 
+                                            </tr>  
+
+
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

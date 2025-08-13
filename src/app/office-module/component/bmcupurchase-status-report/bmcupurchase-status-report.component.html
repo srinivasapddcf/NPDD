@@ -1,0 +1,196 @@
+
+<div class="container-fluid" >
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+           <div class="card-header">
+              <h4 class="card-title">BMCUPURCHASE-STATUS-REPORT </h4>
+            </div>
+                <!-- <div class="card-body">
+                  <div>
+                      <div class="row" >
+                          <div class="col-md-12"> 
+
+                                <p> BMCUPURCHASE-STATUS-REPORT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                    <div class="card-body">
+                        <div class="col-md-12 table-responsive">
+ 
+                              <table  class="table table-striped ah-table text-center"  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+        
+                                <thead class="bg-success text-white" style="border: 1px solid white;">
+                                   <tr >
+                                       <th  class="thclr">S NO</th>
+                                       <th  class="thclr">FY</th>
+                                       <th  class="thclr" >No of BMCUs Supplied </th>
+                                       <th  class="thclr" >No of BMCUs Recevived</th>
+                                       <th  class="thclr" >No of BMCUs Installed & Trail Runs Completed</th>         
+                                       <th  class="thclr">No of BMCUs to be Installed & Trail Runs Completed</th>
+                                       <th  class="thclr" > No of BMCUs to be Received</th>
+                                      
+        
+                                   </tr>
+                                   <tr>
+                                       <th   class="thclr">(1)</th>
+                                       <th  class="thclr">(2)</th>
+                                       <th   class="thclr">(3)</th>
+                                       <th   class="thclr">(4)</th>
+                                       <th   class="thclr">(5)</th>
+                                       <th  class="thclr">(6)</th>
+                                       <th  class="thclr">(7)</th> 
+                                   </tr>
+                               </thead>                               
+                              
+
+                                        <tbody calss="table_cells_borders" *ngIf="BMCUList?.length > 0">
+                                            <tr *ngFor="let obj of BMCUList; let i=index;">
+                                        
+                                        <td class="number_align">{{ i + 1 }}</td>
+                                        <td style="text-align: right;" class="table_cells_borders">{{obj.FY}}</td> 
+                                         
+                                         
+ <td style="text-align: right;" class="table_cells_borders">
+                                    <a style="cursor: pointer; text-decoration: underline"  class="text-primary "   (click)="btnGetDetails('1')" >  <b>{{obj.SUPPLIED}}</b></a>  </td> 
+
+
+                                        <td style="text-align: right; width: 200px;" class="table_cells_borders"> 
+                                            <a style="cursor: pointer; text-decoration: underline"  class="text-primary "   (click)="btnGetDetails('2')" >  <b>{{obj.RECEIVED}}</b></a>
+
+                                        </td>
+                                        <td style="text-align: right; width: 200px;" class="table_cells_borders"> 
+                                            <a style="cursor: pointer; text-decoration: underline"  class="text-primary "   (click)="btnGetDetails('3')" >  <b>{{obj.TRAIL_RUNS_COMPLTED}}</b></a>   
+                                        </td>
+                                        <td style="text-align: right;" class="table_cells_borders">
+                                            <a style="cursor: pointer; text-decoration: underline"  class="text-primary "   (click)="btnGetDetails('4')" >  <b>{{obj.TO_BE_INST_TRAIL_RUNS_COMPLTED}}</b></a>
+
+                                        </td>
+                                        <td style="text-align: right;" class="table_cells_borders">
+                                            <a style="cursor: pointer; text-decoration: underline"  class="text-primary "   (click)="btnGetDetails('5')" >  <b>{{obj.no_of_bmcus_tobe_received}}</b></a>
+                                        </td>  
+                                         
+                                    </tr>   
+                                </tbody>
+                            </table>     
+                        
+
+                            <!-- <div class="row"     >
+                                <div class="col-md-12 col-12">
+                    
+                    
+                                    <p-table id="tbltable" [value]="BMCUList" styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
+                                        [paginator]="true" #dt2 [rows]="10" [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
+                                        [globalFilterFields]=" ['DISTRICT_NAME']" [paginator]="true"
+                    
+                                       
+                    
+                    
+                                        sortMode="multiple" [tableStyle]="{ 'min-width': '100%', 'table-layout': 'auto' }" [scrollable]="true"
+                                        scrollHeight="560px">
+                    
+                                        <ng-template pTemplate="caption">
+                                            <div class="row">
+                                                <div class="col-md-8"></div>
+                                                <div class="col-md-4"   >
+                                                    <button type="button" (click)="exportTable_ToPDF('tbltable','AHA Login Details')" style="margin-top: 0px;"
+                                                        class="btn btn-danger btn-sm pull-right" pTooltip="PDF" tooltipPosition="bottom">
+                                                        <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>PDF</button>
+                                                    <button type="button" (click)="exportTable_toexcel('tbltable','AHA Login Details')" style="margin-top: 0px;"
+                                                        class="btn btn-success btn-sm pull-right" pTooltip="XLS" tooltipPosition="bottom">
+                                                        <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>Excel</button>
+                                                    <span class="p-input-icon-left search-container">
+                                                        <i class="pi pi-search"></i>
+                                                        <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                                                            placeholder="Search keyword" class="search-input" />
+                                                    </span>
+                    
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                    
+                    
+                                        <ng-template pTemplate="header">
+                                            <tr class="text-center">
+                                                <th style="min-width: 50px; white-space: nowrap;">S NO</th>
+                                                <th style="min-width: 150px; white-space: nowrap;">DISTRICT NAME</th>
+                                                <!-- <th style="min-width: 150px; white-space: nowrap;">MANDAL NAME</th>
+                                                <th style="min-width: 150px; white-space: nowrap;">NAME OF THE AHA </th>
+                                                <th style="min-width: 180px; white-space: nowrap;">CONTACT NO</th>
+                                                <th style="min-width: 120px; white-space: nowrap;">SECRETARIAT CODE</th>
+                                                <th style="min-width: 140px; white-space: nowrap;">SECRETARIAT NAME</th>
+                                                <th style="min-width: 180px; white-space: nowrap;">AHA USERNAME</th>
+                                                <th style="min-width: 160px; white-space: nowrap;">CREATED DATE</th>
+                                                <th style="min-width: 160px; white-space: nowrap;">USER STATUS</th>
+                                                <th style="min-width: 100px; white-space: nowrap;">LOGIN STATUS</th>
+                                                <th style="min-width: 160px; white-space: nowrap;">LAST LOGIN DATE & TIME</th>
+                                                <th style="min-width: 160px; white-space: nowrap;">NO OF ASSIGNED VILLAGES</th>
+                                                <th style="min-width: 160px; white-space: nowrap;">ASSIGNED VILLAGE NAMES</th>
+                                                <th style="min-width: 100px; white-space: nowrap;">VILLAGE FARMER COUNT</th>
+                                                <th style="min-width: 160px; white-space: nowrap;">TOTAL
+                                                    NO OF FARMERS</th>  
+                                            </tr>
+                                            <tr class="text-center">
+                    
+                                                   
+                    
+                                                <th>1</th>
+                                                <th pSortableColumn="DISTRICT_NAME">2 <p-sortIcon field="DISTRICT_NAME" /></th>
+                                                  <th pSortableColumn="MANDAL_NAME">3 <p-sortIcon field="MANDAL_NAME" /></th>
+                                                <th pSortableColumn="AHA_NAME">4 <p-sortIcon field="AHA_NAME" /></th>
+                                                <th pSortableColumn="AHA_MOBILE">5 <p-sortIcon field="AHA_MOBILE" /></th>
+                                                <th pSortableColumn="SECRETARIAT_CODE">6 <p-sortIcon field="SECRETARIAT_CODE" /></th>
+                                                <th pSortableColumn="SECRETARIAT_NAME">7 <p-sortIcon field="SECRETARIAT_NAME" /></th>
+                                                <th pSortableColumn="AHA_USERNAME">8 <p-sortIcon field="AHA_USERNAME" /></th>
+                                                <th pSortableColumn="CREATED_DATE">9 <p-sortIcon field="CREATED_DATE" /></th>
+                                                <th pSortableColumn="USER_STATUS">10 <p-sortIcon field="USER_STATUS" /></th>
+                                                <th pSortableColumn="LOGIN_STATUS">11 <p-sortIcon field="LOGIN_STATUS" /></th>
+                                                <th pSortableColumn="LAST_LOGIN_DATE_TIME">12 <p-sortIcon field="LAST_LOGIN_DATE_TIME" /></th>
+                                                <th pSortableColumn="VILLAGE_COUNT">13 <p-sortIcon field="VILLAGE_COUNT" /></th>
+                                                <th pSortableColumn="CURRENT_VILLAGES">14 <p-sortIcon field="CURRENT_VILLAGES" /></th>
+                                                <th pSortableColumn="VILLAGE_FARMER">15 <p-sortIcon field="VILLAGE_FARMER" /></th>
+                                                <th pSortableColumn="TOTAL_NO_OF_FARMERS">16 <p-sortIcon field="TOTAL_NO_OF_FARMERS" /></th>  
+                     
+                    
+                    
+                    
+                    
+                                            </tr>
+                                        </ng-template>
+                    
+                    
+                    
+                                        <ng-template pTemplate="body" let-BMCUList let-rowIndex="rowIndex">
+                                            <tr>
+                                                <td style="text-align: right; min-width: 50px;">{{ rowIndex + 1 }}</td>
+                                                <td style="text-align: left; min-width: 150px;">{{ BMCUList.DISTRICT_NAME }}</td>
+                                                  <td style="text-align: left; min-width: 150px;">{{ DetailsList.MANDAL_NAME }}</td>  
+                                                <td style="text-align: left; min-width: 50px;">{{ DetailsList.AHA_NAME }}</td>
+                                                <td style="text-align: right; min-width: 180px;">{{ DetailsList.AHA_MOBILE }}</td>
+                                                <td style="text-align: right; min-width: 120px;">{{ DetailsList.SECRETARIAT_CODE }}</td>
+                                                <td style="text-align: left; min-width: 140px;">{{ DetailsList.SECRETARIAT_NAME }}</td>
+                                                <td style="text-align: left; min-width: 120px;">{{ DetailsList.AHA_USERNAME }}</td>
+                                                <td style="text-align: center; min-width: 160px;">{{ DetailsList.CREATED_DATE }}</td>
+                                                <td style="text-align: left; min-width: 160px;">{{ DetailsList.USER_STATUS }}</td>
+                                                <td style="text-align: left; min-width: 150px;">{{ DetailsList.LOGIN_STATUS }}</td>
+                                                <td style="text-align: center; min-width: 50px;">{{ DetailsList.LAST_LOGIN_DATE_TIME }}</td>
+                                                <td style="text-align: right; min-width: 180px;">{{ DetailsList. VILLAGE_COUNT }}</td>
+                                                <td style="text-align: left; min-width: 120px;">{{ DetailsList.CURRENT_VILLAGES }}</td>
+                                                <td style="text-align: left; min-width: 140px;">{{ DetailsList.VILLAGE_FARMER }}</td>
+                                                <td style="text-align: right; min-width: 120px;">{{ DetailsList.TOTAL_NO_OF_FARMERS }}</td>  
+                                                
+                    
+                                               
+                                            </tr>
+                                        </ng-template>
+                    
+                                    </p-table>
+                                </div>
+                            </div> -->
+
+            </div>
+        </div>
+    </div>
+</div>

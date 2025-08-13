@@ -1,0 +1,361 @@
+<div class="card">
+    <div class="card-header p-2">
+        <h5 class="mb-0">TRAINING EXPENDITURE REPORT</h5>
+    </div>
+    <br /><br />
+     <div class="row">
+            
+
+                <div class="col-md-1" style="text-align: right;" >     <label>Speakers </label>    </div>
+                    <div  class="col-md-1"  style="text-align: left;margin-left: -20px;" ><input  type="checkbox"  [value]="1"  [(ngModel)]="Speakers" class="big-checkbox"  (change)="onchkSelect($event,1)" />  </div>
+                 
+                 <div class="col-md-1"   style="text-align: right;">   <label>Participants </label></div>
+                    <div  class="col-md-1"  style="text-align: left;margin-left: -20px;"><input  type="checkbox"  [value]="1"  [(ngModel)]="Participants"  class="big-checkbox"  (change)="onchkSelect($event,2)" />  </div>                     
+                 
+                 <div class="col-md-1"  style="text-align: right;">                     <label>Documents </label></div>
+                    <div  class="col-md-1"  style="text-align: left;margin-left: -20px;"><input  type="checkbox"  [value]="1"  [(ngModel)]="Documents"  class="big-checkbox"  (change)="onchkSelect($event,3)" />  </div>
+                 
+                 <div class="col-md-1" style="text-align: right;">   <label>Expenditure </label></div>
+                    <div  class="col-md-1"  style="text-align: left;margin-left: -20px;"><input  type="checkbox"  [value]="1"  [(ngModel)]="Expenditure"  class="big-checkbox"  (change)="onchkSelect($event,4)" />  </div>
+                 
+                 <div class="col-md-1" style="text-align: right;">         <label>All </label> </div>
+                    <div class="col-md-1" style="text-align: left;margin-left: -20px;"><input  type="checkbox"  [value]="1"  [(ngModel)]="All"  class="big-checkbox"  (change)="onallSelect($event)" />  </div>
+                
+
+                     <div class="col-md-1"   >
+              <input type="button" class="btn btn-info fa fa-plus" value="Find" (click)="GODetails();"
+                    /> 
+          </div>
+                 
+        </div>
+    <div class="card-body col-md-12">
+ 
+        <div class="row">
+            <div class="col-md-12">
+
+                
+
+        <p-table id="tbltable" [value]="jobDetailsList" [paginator]="true" [rows]="jobDetailsList?.length" #dt2
+          [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
+          [globalFilterFields]="['MEETING_ID','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','NO_OF_PARTICIPANT','EXPENDITURE','SUB_DATE',
+'ATND_PDF','HONORARIUM_TA_BILL_PDF','REFRESHMENT_BILL_PDF','STATIONARY_TRN_BILL_PDF','SPEAKER_IMG1_PDF','SPEAKER_IMG2_PDF','SPEAKER_IMG3_PDF','SPEAKER_IMG4_PDF','
+PRCT_ATND_IMG1_PDF','PRCT_ATND_IMG2_PDF','PRCT_ATND_IMG3_PDF','PRCT_ATND_IMG4_PDF','STATUS']"
+          styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
+          [tableStyle]="{ 'min-width': '75rem','min-height':'100%'}" [scrollable]="false" sortMode="multiple"
+          scrollHeight="100%">
+          <ng-template pTemplate="caption">
+            <div class="row">
+              <div class="col-md-8"></div>
+              <div class="col-md-4" [hidden]="jobDetailsList?.length < 1">
+                <button type="button" (click)="exportTable_ToPDF('tbltable','Training Pending Details')"
+                  class="btn btn-danger btn-sm pull-right" pTooltip="PDF" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>PDF</button>
+                <button type="button" (click)="exportTable_toexcel('tbltable','Training Pending Details')"
+                  class="btn btn-success btn-sm pull-right" pTooltip="XLS" tooltipPosition="bottom"
+                  style="margin-top: 0px;">
+                  <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>EXCEL</button>
+
+ 
+
+
+                <span class="p-input-icon-left search-container">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                    placeholder="Search keyword" class="search-input" />
+                </span>
+
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template pTemplate="header">
+            <tr>
+               
+              <th rowspan="3" class="bgc">S.No</th> 
+
+              <!-- <th rowspan="3"  class="bgc" pSortableColumn="MEETING_ID">MEETING ID <p-sortIcon field="MEETING_ID" />              </th>
+              <th rowspan="3"  class="bgc" pSortableColumn="TRAINING_ID">TRAINING TYPE <p-sortIcon field="TRAINING_ID" /></th>
+              <th rowspan="3"  class="bgc" pSortableColumn="TRAINING_DATE">TRAINING DATE <p-sortIcon field="TRAINING_DATE" /></th>
+              <th rowspan="3"  class="bgc" pSortableColumn="TRAINING_TIME">TRAINING TIME <p-sortIcon field="TRAINING_TIME" /></th>
+
+
+             
+              
+              <th colspan="12"  class="bgc" style="text-align: center;">DOCUMENTS</th>
+
+
+              <th rowspan="3"  class="bgc" pSortableColumn="NO_OF_SPEAKERS">NO OF SPEAKERS <p-sortIcon field="NO_OF_SPEAKERS" /> </th> 
+               <th rowspan="3"  class="bgc" pSortableColumn="NO_OF_PARTICIPANT">NO OF PARTICIPANT <p-sortIcon field="NO_OF_PARTICIPANT" /> </th>
+              <th rowspan="3"  class="bgc" pSortableColumn="EXPENDITURE">EXPENDITURE <p-sortIcon field="EXPENDITURE" /></th>
+              <th rowspan="3"  class="bgc" pSortableColumn="COST_PER_PARTICIPANT">COST/PARTICIPANT <p-sortIcon field="COST_PER_PARTICIPANT" /></th>
+              <th rowspan="3"  class="bgc" pSortableColumn="SUB_DATE">SUBMITTED DATE <p-sortIcon field="SUB_DATE" /></th> 
+              <th rowspan="3" pSortableColumn="STATUS" class="bgc"> STATUS <p-sortIcon field="STATUS" /></th> -->
+               <!-- <th rowspan="3" class="bgc">MEETING ID</th> -->
+  <th rowspan="3" class="bgc">TRAINING TYPE</th>
+  <th rowspan="3" class="bgc">TRAINING DATE</th>
+  <th rowspan="3" class="bgc">TRAINING TIME</th>
+  
+  <th colspan="12" class="bgc" style="text-align: center;"  *ngIf="Documents===true">DOCUMENTS</th>
+  
+  <th rowspan="3" class="bgc" *ngIf="Speakers===true"  >NO OF SPEAKERS</th>
+  <th rowspan="3" class="bgc" *ngIf="Participants===true">NO OF PARTICIPANT</th>
+  <th rowspan="3" class="bgc" *ngIf="Expenditure===true">EXPENDITURE</th>
+  <th rowspan="3" class="bgc">COST/PARTICIPANT</th>
+  <th rowspan="3" class="bgc">SUBMITTED DATE</th>
+  <th rowspan="3" class="bgc">STATUS</th> 
+             
+            </tr> 
+            <tr  *ngIf="Documents===true"> 
+ <th colspan="4" class="bgc"    style="text-align: center;" >ATTENDANCE AND BILLS</th>
+  <th colspan="4" class="bgc"     style="text-align: center;">SPEAKER IMAGES</th>
+    <th colspan="4" class="bgc"     style="text-align: center;">PARTICIPANT MAGES</th>
+ </tr>
+   <tr  *ngIf="Documents===true">
+<th rowspan="1" class="bgc" style="text-align: center;">ATTENDANCE PDF</th>
+<th rowspan="1" class="bgc" style="text-align: center;">HONORARIUM TA BILL</th>
+<th rowspan="1" class="bgc" style="text-align: center;">REFRESHMENT BILL</th>
+<th rowspan="1" class="bgc" style="text-align: center;">STATIONARY TRN BILL</th>
+
+<th rowspan="1" class="bgc" style="text-align: center;">SPEAKER IMG1</th>
+<th rowspan="1" class="bgc" style="text-align: center;">SPEAKER IMG2</th>
+<th rowspan="1" class="bgc" style="text-align: center;">SPEAKER IMG3</th>
+<th rowspan="1" class="bgc" style="text-align: center;">SPEAKER IMG4</th>
+
+<th rowspan="1" class="bgc" style="text-align: center;">PARTICIPANT IMG1</th>
+<th rowspan="1" class="bgc" style="text-align: center;">PARTICIPANT IMG2</th>
+<th rowspan="1" class="bgc" style="text-align: center;">PARTICIPANT IMG3</th>
+<th rowspan="1" class="bgc" style="text-align: center;">PARTICIPANT IMG4</th>
+
+   </tr>    
+      
+    <!-- <tr> <th rowspan="3" class="bgc" style="text-align: center;" > </th>
+     <th rowspan="3" class="bgc" style="text-align: center;color: white !important;" pSortableColumn="MEETING_ID">1 <p-sortIcon field="MEETING_ID" style="color: white !important;" /></th>
+  <th rowspan="3" class="bgc" style="text-align: center;color: white !important;" pSortableColumn="TRAINING_ID">2 <p-sortIcon field="TRAINING_ID"  style="color: white !important;" /></th>
+  <th rowspan="3" class="bgc" style="text-align: center;color: white !important;" pSortableColumn="TRAINING_DATE">3 <p-sortIcon field="TRAINING_DATE"  style="color: white !important;"/></th>
+  <th rowspan="3" class="bgc" style="text-align: center;color: white !important;" pSortableColumn="TRAINING_TIME">4 <p-sortIcon field="TRAINING_TIME"  style="color: white !important;"/></th>
+
+  <th class="bgc" style="text-align: center;" pSortableColumn="ATND_PDF">5 <p-sortIcon field="ATND_PDF"  style="color: white !important;"/></th>
+  <th class="bgc" style="text-align: center;" pSortableColumn="HONORARIUM_TA_BILL_PDF">6 <p-sortIcon field="HONORARIUM_TA_BILL_PDF"  style="color: white !important;"/></th>
+  <th class="bgc" style="text-align: center;" pSortableColumn="REFRESHMENT_BILL_PDF">7 <p-sortIcon field="REFRESHMENT_BILL_PDF" /></th>
+  <th class="bgc" style="text-align: center;" pSortableColumn="STATIONARY_TRN_BILL_PDF">8 <p-sortIcon field="STATIONARY_TRN_BILL_PDF" /></th>
+
+  <th class="bgc" style="text-align: center;" pSortableColumn="SPEAKER_IMG1_PDF">9 <p-sortIcon field="SPEAKER_IMG1_PDF" /></th>
+  <th class="bgc" style="text-align: center;" pSortableColumn="SPEAKER_IMG2_PDF">10 <p-sortIcon field="SPEAKER_IMG2_PDF" /></th>
+  <th class="bgc" style="text-align: center;" pSortableColumn="SPEAKER_IMG3_PDF">11 <p-sortIcon field="SPEAKER_IMG3_PDF" /></th>
+  <th class="bgc" style="text-align: center;" pSortableColumn="SPEAKER_IMG4_PDF">12 <p-sortIcon field="SPEAKER_IMG4_PDF" /></th>
+
+  <th class="bgc" style="text-align: center;" pSortableColumn="PRCT_ATND_IMG1_PDF">13 <p-sortIcon field="PRCT_ATND_IMG1_PDF" /></th>
+  <th class="bgc" style="text-align: center;" pSortableColumn="PRCT_ATND_IMG2_PDF">14 <p-sortIcon field="PRCT_ATND_IMG2_PDF" /></th>
+  <th class="bgc" style="text-align: center;" pSortableColumn="PRCT_ATND_IMG3_PDF">15 <p-sortIcon field="PRCT_ATND_IMG3_PDF" /></th>
+  <th class="bgc" style="text-align: center;" pSortableColumn="PRCT_ATND_IMG4_PDF">16 <p-sortIcon field="PRCT_ATND_IMG4_PDF" /></th>
+
+
+  <th rowspan="3" class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS">      17 <p-sortIcon field="NO_OF_SPEAKERS" />    </th>
+    <th rowspan="3" class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT">      18 <p-sortIcon field="NO_OF_PARTICIPANT" />    </th>
+    <th rowspan="3" class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE">      19 <p-sortIcon field="EXPENDITURE" />    </th>
+    <th rowspan="3" class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT">      20 <p-sortIcon field="COST_PER_PARTICIPANT" />    </th>
+    <th rowspan="3" class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE">      21 <p-sortIcon field="SUB_DATE" />    </th>
+    <th rowspan="3" class="bgc" style="text-align: center;" pSortableColumn="STATUS">      22 <p-sortIcon field="STATUS" />    </th>
+ 
+   </tr>  -->
+              
+            
+          </ng-template>
+
+          <ng-template pTemplate="body" let-obj let-i="rowIndex" style="height: 100%;">
+            <tr>
+              
+              <td style="text-align: right;">{{i + 1}}</td>
+              <!-- <td style="text-align: center;">{{obj.MEETING_ID}}</td> -->
+              <td style="white-space: normal; text-align:  left !important;">{{ obj.TRAINING_ID }}</td>
+              <td style="white-space: normal; text-align:  center !important;">{{obj.TRAINING_DATE.substring(0, 10)  }}</td>
+              <td style="text-align:  right !important;">{{obj.TRAINING_TIME}}</td>
+              
+<td style="text-align: center;" *ngIf="Documents===true">  
+   <button style="background-color: cornflowerblue;color: white;"
+                      type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+                       obj.ATND_PDF !== null && obj.ATND_PDF !== 'NA' &&  obj.ATND_PDF !== undefined "
+                      (click)="btnPdfView(obj.ATND_PDF)" >  View </button>  
+                   <span  *ngIf="obj.ATND_PDF === null ||  obj.ATND_PDF === 'NA' ||  obj.ATND_PDF === undefined" >NA</span >
+</td>
+<td style="text-align: center;" *ngIf="Documents===true"> 
+
+   <button style="background-color: cornflowerblue;color: white;"
+ type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+     obj.HONORARIUM_TA_BILL_PDF !== null && obj.HONORARIUM_TA_BILL_PDF !== 'NA' &&  obj.HONORARIUM_TA_BILL_PDF !== undefined " (click)="btnPdfView(obj.HONORARIUM_TA_BILL_PDF)" >  View </button>  
+                   <span  *ngIf="obj.HONORARIUM_TA_BILL_PDF === null ||  obj.HONORARIUM_TA_BILL_PDF === 'NA' ||  obj.HONORARIUM_TA_BILL_PDF === undefined" >NA</span >
+
+</td>
+<td style="text-align: center;" *ngIf="Documents===true"> 
+  <button style="background-color: cornflowerblue;color: white;"
+ type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+     obj.REFRESHMENT_BILL_PDF !== null && obj.REFRESHMENT_BILL_PDF !== 'NA' &&  obj.REFRESHMENT_BILL_PDF !== undefined " (click)="btnPdfView(obj.REFRESHMENT_BILL_PDF)" >  View </button>  
+                   <span  *ngIf="obj.REFRESHMENT_BILL_PDF === null ||  obj.REFRESHMENT_BILL_PDF === 'NA' ||  obj.REFRESHMENT_BILL_PDF === undefined" >NA</span >
+</td>
+<td style="text-align: center;" *ngIf="Documents===true">
+<button style="background-color: cornflowerblue;color: white;"
+ type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+     obj.STATIONARY_TRN_BILL_PDF !== null && obj.STATIONARY_TRN_BILL_PDF !== 'NA' &&  obj.STATIONARY_TRN_BILL_PDF !== undefined " (click)="btnPdfView(obj.STATIONARY_TRN_BILL_PDF)" >  View </button>  
+                   <span  *ngIf="obj.STATIONARY_TRN_BILL_PDF === null ||  obj.STATIONARY_TRN_BILL_PDF === 'NA' ||  obj.STATIONARY_TRN_BILL_PDF === undefined" >NA</span >
+
+</td>
+<td style="text-align: center;" *ngIf="Documents===true"> 
+
+  <button style="background-color: cornflowerblue;color: white;"
+ type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+     obj.SPEAKER_IMG1_PDF !== null && obj.SPEAKER_IMG1_PDF !== 'NA' &&  obj.SPEAKER_IMG1_PDF !== undefined " (click)="btnImgView(obj.SPEAKER_IMG1_PDF)" >  View </button>  
+                   <span  *ngIf="obj.SPEAKER_IMG1_PDF === null ||  obj.SPEAKER_IMG1_PDF === 'NA' ||  obj.SPEAKER_IMG1_PDF === undefined" >NA</span >
+
+</td>
+<td style="text-align: center;"     *ngIf="Documents===true"> 
+
+   <button style="background-color: cornflowerblue;color: white;"
+ type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+     obj.SPEAKER_IMG2_PDF !== null && obj.SPEAKER_IMG2_PDF !== 'NA' &&  obj.SPEAKER_IMG2_PDF !== undefined " (click)="btnImgView(obj.SPEAKER_IMG2_PDF)" >  View </button>  
+                   <span  *ngIf="obj.SPEAKER_IMG2_PDF === null ||  obj.SPEAKER_IMG2_PDF === 'NA' ||  obj.SPEAKER_IMG2_PDF === undefined" >NA</span >
+</td>
+<td style="text-align: center;"     *ngIf="Documents===true"> 
+
+  <button style="background-color: cornflowerblue;color: white;"
+ type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+     obj.SPEAKER_IMG3_PDF !== null && obj.SPEAKER_IMG3_PDF !== 'NA' &&  obj.SPEAKER_IMG3_PDF !== undefined " (click)="btnImgView(obj.SPEAKER_IMG3_PDF)" >  View </button>  
+                   <span  *ngIf="obj.SPEAKER_IMG3_PDF === null ||  obj.SPEAKER_IMG3_PDF === 'NA' ||  obj.SPEAKER_IMG3_PDF === undefined" >NA</span >
+</td>
+<td style="text-align: center;" *ngIf="Documents===true"> 
+  <button style="background-color: cornflowerblue;color: white;"
+ type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+     obj.SPEAKER_IMG4_PDF !== null && obj.SPEAKER_IMG4_PDF !== 'NA' &&  obj.SPEAKER_IMG4_PDF !== undefined " (click)="btnImgView(obj.SPEAKER_IMG4_PDF)" >  View </button>  
+                   <span  *ngIf="obj.SPEAKER_IMG4_PDF === null ||  obj.SPEAKER_IMG4_PDF === 'NA' ||  obj.SPEAKER_IMG4_PDF === undefined" >NA</span >
+
+</td>
+<td style="text-align: center;"   *ngIf="Documents===true"> 
+<button style="background-color: cornflowerblue;color: white;"
+ type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+     obj.PRCT_ATND_IMG1_PDF !== null && obj.PRCT_ATND_IMG1_PDF !== 'NA' &&  obj.PRCT_ATND_IMG1_PDF !== undefined " (click)="btnImgView(obj.PRCT_ATND_IMG1_PDF)" >  View </button>  
+                   <span  *ngIf="obj.PRCT_ATND_IMG1_PDF === null ||  obj.PRCT_ATND_IMG1_PDF === 'NA' ||  obj.PRCT_ATND_IMG1_PDF === undefined" >NA</span >
+
+</td>
+<td style="text-align: center;"  *ngIf="Documents===true"> 
+<button style="background-color: cornflowerblue;color: white;"
+ type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+     obj.PRCT_ATND_IMG2_PDF !== null && obj.PRCT_ATND_IMG2_PDF !== 'NA' &&  obj.PRCT_ATND_IMG2_PDF !== undefined " (click)="btnImgView(obj.PRCT_ATND_IMG2_PDF)" >  View </button>  
+                   <span  *ngIf="obj.PRCT_ATND_IMG2_PDF === null ||  obj.PRCT_ATND_IMG2_PDF === 'NA' ||  obj.PRCT_ATND_IMG2_PDF === undefined" >NA</span >
+
+</td>
+<td style="text-align: center;"  *ngIf="Documents===true"> 
+
+  <button style="background-color: cornflowerblue;color: white;"
+ type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+     obj.PRCT_ATND_IMG3_PDF !== null && obj.PRCT_ATND_IMG3_PDF !== 'NA' &&  obj.PRCT_ATND_IMG3_PDF !== undefined " (click)="btnImgView(obj.PRCT_ATND_IMG3_PDF)" >  View </button>  
+                   <span  *ngIf=" obj.PRCT_ATND_IMG3_PDF === null ||  obj.PRCT_ATND_IMG3_PDF === 'NA' ||  obj.PRCT_ATND_IMG3_PDF === undefined" >NA</span >
+</td>
+<td style="text-align: center;"  *ngIf="Documents===true">
+
+   <button style="background-color: cornflowerblue;color: white;"
+ type="button"  class="btn btn-link btn-sm  px-5"  *ngIf="
+     obj.PRCT_ATND_IMG4_PDF !== null && obj.PRCT_ATND_IMG4_PDF !== 'NA' &&  obj.PRCT_ATND_IMG4_PDF !== undefined " (click)="btnImgView(obj.PRCT_ATND_IMG4_PDF)" >  View </button>  
+                   <span  *ngIf=" obj.PRCT_ATND_IMG4_PDF === null ||  obj.PRCT_ATND_IMG4_PDF === 'NA' ||  obj.PRCT_ATND_IMG4_PDF === undefined" >NA</span >
+</td>
+
+
+  <td style="text-align:  right !important;"  *ngIf="Speakers===true" >{{obj.NO_OF_SPEAKERS}}</td>
+  <td style="text-align:  right !important;" *ngIf="Participants===true" >{{obj.NO_OF_PARTICIPANT}}</td>
+  <td style="text-align:  right !important;"  *ngIf="Expenditure===true">{{obj.EXPENDITURE}}</td>
+  <td style="text-align:  right !important;">{{obj.COST_PER_PARTICIPANT}}</td>  
+  <td style="text-align: center;">{{obj.SUB_DATE}}</td>
+  <td style="text-align: left;">{{obj.STATUS}}</td> 
+               
+
+               
+    
+             
+            </tr>
+          </ng-template>
+        </p-table>
+
+     
+<!-- 
+                <div class="col-md-12 table-responsive" [hidden]="RegDetails?.length <0">
+                    
+                    
+                    
+                    <p-table id="tbltable" [value]="RegDetails" class="p-datatable"
+                        styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm" [paginator]="true" #dt2
+                        [rows]="RegDetails.length" [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]" sortMode="multiple"
+                        [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}"
+  
+
+                        [globalFilterFields]="['PONUMBER', 'PODATE', 'INVOICENO', 'INVOICEDATE','QTY', 'INVOICE_AMOUNT', 
+'TOTAL_APRL_PER', 'TOTAL_APRL_AMOUNT', 'BUDGETSLIP_NO', 'BUDGET_FINCIAL_YEAR', 
+'PROCEDINGNO', 'PROCEEDING_DATE']" [scrollable]="true"
+                        scrollHeight="560px">
+                        <ng-template pTemplate="caption">
+                            <div class="row">
+                                <div class="col-md-8"></div>
+                                <div class="col-md-4" [hidden]="RegDetails?.length < 1">
+                                    <button type="button"
+                                        (click)="exportTable_ToPDF('tbltable','State Level Report')"
+                                        class="btn btn-danger btn-sm pull-right" pTooltip="PDF" tooltipPosition="bottom"
+                                        style="margin-top: 0px;">
+                                        <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>PDF</button>
+                                    <button type="button"
+                                        (click)="exportTable_toexcel('tbltable','State Level Report')"
+                                        class="btn btn-success btn-sm pull-right" pTooltip="XLS" 
+                                        tooltipPosition="bottom" style="margin-top: 0px;">
+                                        <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>EXCEL</button>
+                                    <span class="p-input-icon-left search-container">
+                                        <i class="pi pi-search"></i>
+                                        <input pInputText type="text"
+                                            (input)="dt2.filterGlobal($event.target.value, 'contains')"
+                                            placeholder="Search keyword" class="search-input" />
+                                    </span>
+
+                                </div>
+                            </div>
+                        </ng-template>
+
+                        <ng-template pTemplate="header"  >
+                            <tr class="text-center" style="white-space: nowrap;">
+                                <th  class="headdd"  >S.No </th>  
+                                <th  class="headdd"  >PO NUMBER </th>  
+                                <th  class="headdd"  >PO DATE  </th>  
+                                <th  class="headdd"  >INVOICE NUMBER </th>  
+                                <th  class="headdd"  >INVOICE DATE </th>  
+                                <th  class="headdd"  >INVOICE QTY </th>  
+                                
+                            </tr>
+
+                             <tr class="text-center" style="white-space: nowrap;">
+                                <th   class="headdd2"   >1 </th>  
+                                <th  class="headdd2"   pSortableColumn="PONUMBER"   >2<p-sortIcon field="PONUMBER"   /> 
+                                <th  class="headdd2" pSortableColumn="PODATE"   >3<p-sortIcon field="PODATE" /> 
+                                <th class="headdd2"  pSortableColumn="INVOICENO"   >4<p-sortIcon field="INVOICENO" /> 
+                                <th class="headdd2"  pSortableColumn="INVOICEDATE"   >5<p-sortIcon field="INVOICEDATE" /> 
+                                <th class="headdd2"  pSortableColumn="QTY"   >6<p-sortIcon field="QTY" /> 
+                               
+                            </tr>
+
+                            
+                           
+                        </ng-template>
+                        <ng-template pTemplate="body" let-RegDetails let-rowIndex="rowIndex">
+                            <tr>
+                                  <td  >{{ rowIndex+1}}</td>
+                                <td style="text-align: left;text-wrap-mode:nowrap;" >{{ RegDetails.PONUMBER }}</td>
+                                <td style="text-wrap-mode:nowrap;" >{{ RegDetails.PODATE  | slice:0:10 }}</td>
+                                <td  style="text-align: left;" >{{ RegDetails.INVOICENO }}</td>
+                                <td>{{ RegDetails.INVOICEDATE }}</td>
+                                <td  style="text-align: right;" >{{ RegDetails.QTY }}</td>
+                               
+                            
+                            </tr>  
+                        </ng-template> 
+                        
+                    </p-table>
+                </div> -->
+                
+            </div>
+        </div>
+    </div>
+</div> 

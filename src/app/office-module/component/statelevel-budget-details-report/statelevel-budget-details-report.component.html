@@ -1,0 +1,77 @@
+<div class="card">
+    <div class="card-header p-2">
+        <h5 class="mb-0">STATE LEVEL REPORT</h5>
+    </div>
+    <div class="card-body"> 
+        <div class="col-md-12" [hidden]="firmdetailsList?.length < 1">
+            <button type="button" class="btn btn-success btn-sm pull-right" (click)="btnExcel()">
+                <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>
+                Download Excel
+            </button> 
+        </div>
+  
+        <div class="table-responsive" [hidden]="firmdetailsList?.length < 1">
+            <table class="table table-striped ah-table text-center" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  >
+                <thead class="bg-success text-white" style="border: 1px solid white;">
+                    <tr>
+                        <th class="tableheader_color">S No</th>
+                        <th class="tableheader_color">FINCIAL YEAR</th>
+                        <th class="tableheader_color">SANCTION AMOUNT</th>
+                        <th class="tableheader_color">APPROVED AMOUNT</th>
+                        <th class="tableheader_color">NOOF APPROVED</th>
+                        <th class="tableheader_color">BLANCED AMOUNT</th> 
+                    </tr>
+                    <tr>
+                        <th class="tableheader_color">(1)</th>
+                        <th class="tableheader_color">(2)</th>
+                        <th class="tableheader_color">(3)</th>
+                        <th class="tableheader_color">(4)</th>
+                        <th class="tableheader_color">(5)</th>
+                        <th class="tableheader_color">(6)</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let objd of firmdetailsList; let i = index">
+                        <td class="number_align">{{i+1}}</td>
+                        <td class="number_align">{{objd.FINCIAL_YEAR}}</td>
+                        <td class="number_align"><b>{{objd.SANCTION_AMOUNT    | currency:'INR':'symbol'  }}</b></td> 
+                        <td class="number_align"><b>{{objd.APPROVED_AMOUNT    | currency:'INR':'symbol'  }}</b></td>
+                        <td class="number_align"> 
+                        
+                            <a style="cursor: pointer; text-decoration: underline" class="text-primary"
+                                    (click)="btnGetDetails(obj)"><b>{{objd.NO_OF_APPROVED }}</b></a>
+                        
+                        
+                        </td>
+                        <td class="number_align"><b>{{objd.BLANCED_AMOUNT    | currency:'INR':'symbol'  }}</b></td> 
+                    </tr>
+                </tbody>
+
+                  <tbody>
+                    <td class="font-weight-bold text_alignleft">--</td>
+                    <td class="font-weight-bold text_alignleft">
+                        <b>TOTAL</b>
+                    </td>
+                    <td class="font-weight-bold number_align">{{reportTotal.SANCTION_AMOUNT    | currency:'INR':'symbol'  }}</td>
+                    <td class="font-weight-bold number_align">{{reportTotal.APPROVED_AMOUNT    | currency:'INR':'symbol'  }} </td>
+                    <td class="font-weight-bold number_align">{{reportTotal.NO_OF_APPROVED }} </td>
+                    <td class="font-weight-bold number_align">{{reportTotal.BLANCED_AMOUNT    | currency:'INR':'symbol'  }}  </td>
+                      
+                </tbody>   
+            </table> 
+        </div> 
+
+
+
+
+
+        
+      
+
+
+
+
+
+
+    </div>
+  </div>

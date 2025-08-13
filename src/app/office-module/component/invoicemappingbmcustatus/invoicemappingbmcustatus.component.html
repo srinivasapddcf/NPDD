@@ -1,0 +1,189 @@
+<div class="card-header p-1">
+    <h5 class="mb-0">INVOICE MAPPING BMCU DASHBOARD</h5>
+  </div>
+ 
+
+  <div class="row">
+    <div class="col mb-2">
+      <div
+        class="stats-card primary"
+        (click)="btnMdacAccountDashboardDetails('0')"
+      >
+        <div class="overlay"></div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div class="stats-text">
+              <p class="text-uppercase text-muted mb-1">
+                <small>PENDING</small>
+              </p>
+              <h5 class="font-weight-bold mb-0">
+                {{ dashboardCounts.PENDING }}
+              </h5>
+            </div>
+            <div class="circle">
+              <i class="fas fa-hourglass-half"></i> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-2">
+      <div
+        class="stats-card success"
+        (click)="btnMdacAccountDashboardDetails('1')"
+      >
+        <div class="overlay"></div>
+  
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div class="stats-text">
+              <p class="text-uppercase text-muted mb-1">
+                <small>APPROVED</small>
+              </p>
+              <h5 class="font-weight-bold mb-0">
+                {{ dashboardCounts.APPROVED }}
+              </h5>
+            </div>
+            <div class="circle">
+              <i class="fas fa-check-double"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-2">
+      <div
+        class="stats-card reject"
+        (click)="btnMdacAccountDashboardDetails('2')"
+      >
+        <div class="overlay"></div>
+  
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div class="stats-text">
+              <p class="text-uppercase text-muted mb-1">
+                <small>REJECTED</small>
+              </p>
+              <h5 class="font-weight-bold mb-0">
+                {{ dashboardCounts.REJECTED }}
+              </h5>
+            </div>
+            <div class="circle">
+              <i class="fas fa-times-circle"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+
+  <div class="row mt-3"  [hidden]="requestType !== '0'">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0 secondary-heading pb-0">{{ headingText }}</h5>
+        </div>
+        <div class="card-body"  [hidden]="mdacAccountList?.length < 1" >
+          <div class=" table-responsive">
+            <table  
+            class="table table-striped ah-table text-center"
+            datatable 
+              [dtOptions]="dtOptions"
+              [dtTrigger]="dtTrigger"
+            >
+            <thead class="bg-success text-white" style="border: 1px solid white;"> 
+                <tr>
+                  <th>S.No.</th>
+                  <th>DISTRICT NAME</th>
+                  <th>INVOICE</th>
+                  <th>BMCU</th> 
+                    <th   [hidden]="requestType !== '0'">ACTION TAKEN</th>
+                   <th   [hidden]="requestType !== '0'" >REJECTED REASON</th>   
+                    
+                  <th [hidden]="requestType !== '0'">SUBMIT</th>   
+                </tr>
+              </thead>
+              <tbody [hidden]="mdacAccountList?.length < 1">
+                <tr *ngFor="let obj of mdacAccountList; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ obj.DISTRICT }}</td>
+                  <td>{{ obj.INVOICENO }}</td>
+                  <td>{{ obj.BMCU_NAME }}</td> 
+                  
+                  <td [hidden]="requestType !== '0'">
+                    <select  [hidden]="requestType !== '0'"
+                      id="actionTaken"
+                      class="form-control"
+                      [(ngModel)]="obj.STATUS" 
+                    >
+                      <option value="">-- SELECT ACTION TAKEN --</option>
+                      <option value="1002">APPROVE</option>
+                      <option value="1003">REJECT</option>
+                    </select>
+                  </td>
+                   <td    [hidden]="requestType !== '0'">
+
+                    <input type="text" class="form-control" [(ngModel)]="obj.REMARKS" [hidden]="obj.STATUS !== '1003'"  />
+                    
+                     
+                  </td>
+                   <td   [hidden]="requestType !== '0'">
+                    <button  
+                      type="button"
+                      class="btn btn-primary btn-sm"
+                      (click)="btnVerify(obj)"
+                    >
+                      VERIFY
+                    </button>
+                  </td>  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+
+  <div class="row mt-3" [hidden]="ApRjList?.length < 1"   [hidden]="requestType == '0'">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0 secondary-heading pb-0">{{ headingText }}</h5>
+        </div>
+        <div class="card-body">
+          <div class=" table-responsive">
+            <table
+            class="table table-striped ah-table text-center"
+            datatable 
+              [dtOptions]="dtOptions"
+              [dtTrigger]="dtTrigger"
+            >
+            <thead class="bg-success text-white" style="border: 1px solid white;"> 
+                <tr>
+                  <th>S.No.</th>
+                  <th>DISTRICT NAME</th>
+                  <th>INVOICE</th>
+                  <th>BMCU</th> 
+                    
+                </tr>
+              </thead>
+              <tbody [hidden]="ApRjList?.length < 1">
+                <tr *ngFor="let obj of ApRjList; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ obj.DISTRICT }}</td>
+                  <td>{{ obj.INVOICENO }}</td>
+                  <td>{{ obj.BMCU_NAME }}</td> 
+                  
+                   
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 

@@ -1,0 +1,96 @@
+<div class="card">
+    <div class="card-header p-2">
+        <h5 class="mb-0">APPROVED BMCU REPORT</h5>
+    </div>
+    <div class="card-body"> 
+        <div class="col-md-11" [hidden]="approveddetailsList?.length < 1">
+            <button type="button" class="btn btn-success btn-sm pull-right" (click)="btnExcel()">
+                <i class="fa fa-file-excel-o mr-2" aria-hidden="true"></i>
+                Download Excel
+            </button> 
+
+            <button type="button" class="btn btn-secondary" (click)="btnback()">
+                <i class="fa fa-arrow-left me-2" aria-hidden="true"></i>
+                Back
+            </button> 
+        </div>
+  
+        <div class="table-responsive" [hidden]="approveddetailsList?.length < 1">
+            <table class="table table-striped ah-table text-center" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" style="border: 1px solid rgb(19, 18, 18);" >
+                <thead class="bg-success text-white" style="border: 1px solid rgb(15, 15, 15);">
+                    <tr style="border: 1px solid white;">
+                        <th class="tableheader_color" style="border: 1px solid white;width: 100px;">S No</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">INVOICE</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">DISTRICT</th>                        
+                        <th class="tableheader_color" style="border: 1px solid white;">MANDAL</th>
+
+                        <th class="tableheader_color" style="border: 1px solid white;">BMCU</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">ADV_PER</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">DELIVERY_PER</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">INSTALL_PER</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">YEAR COMPLETED</th>
+                       
+                    </tr>
+                    <tr>
+                        <th class="tableheader_color" style="border: 1px solid white;width: 100px;">(1)</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">(2)</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">(3)</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">(4)</th>
+
+                        <th class="tableheader_color" style="border: 1px solid white;">(5)</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">(6)</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">(7)</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">(8)</th>
+                        <th class="tableheader_color" style="border: 1px solid white;">(9)</th> 
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let objd of approveddetailsList; let i = index"  style="border: 1px solid white;">
+                        <td class="number_align" style="border: 1px solid rgb(19, 18, 18);width: 100px !important;">{{i+1}}</td>
+                        <td class="text_alignleft"style="border: 1px solid rgb(19, 18, 18);">{{objd.INVOICE}}</td>
+                        <td class="text_alignleft" style="border: 1px solid rgb(19, 18, 18);"><b>{{objd.DISTRICT}}</b></td>
+                        <td class="text_alignleft" style="border: 1px solid rgb(19, 18, 18);"><b>{{objd.MANDAL}}</b></td>
+
+                        <td class="text_alignleft" style="border: 1px solid rgb(19, 18, 18);"><b>{{objd.BMCU}}</b></td>
+                        <td class="number_align" style="border: 1px solid rgb(19, 18, 18);"><b>{{objd.ADV_PER}}</b></td> 
+                        <td class="number_align" style="border: 1px solid rgb(19, 18, 18);"><b>{{objd.DELIVERY_PER}}</b></td> 
+                        <td class="number_align" style="border: 1px solid rgb(19, 18, 18);"><b>{{objd.INSTALL_PER}}</b></td> 
+                        <td class="number_align" style="border: 1px solid rgb(19, 18, 18);"><b>{{objd.ONEYEARCOMPLED}}</b></td> 
+                        
+                    </tr>
+                </tbody> 
+                <tbody>
+                    <tr> 
+                        <td >--
+                            
+                        </td>
+                        <td class="font-weight-bold text_alignleft"><b>TOTAL</b></td>
+                        <td class="font-weight-bold text_alignleft">--</td>
+                        <td class="font-weight-bold text_alignleft">--</td>
+                        <td class="font-weight-bold text_alignleft">--</td>
+                        <td class="font-weight-bold number_align">{{ reportTotal.ADV_PER | currency:'INR':'symbol'}}</td>
+                        <td class="font-weight-bold number_align">{{reportTotal.DELIVERY_PER | currency:'INR':'symbol'}} </td>
+                        <td class="font-weight-bold number_align">{{reportTotal.INSTALL_PER | currency:'INR':'symbol'}} </td>
+                        <td class="font-weight-bold number_align">{{reportTotal.ONEYEARCOMPLED | currency:'INR':'symbol'}}  </td>
+                          
+                    </tr>
+                </tbody>
+
+            </table> 
+        </div> 
+
+
+
+
+
+        
+      
+
+
+
+
+
+
+    </div>
+  </div>

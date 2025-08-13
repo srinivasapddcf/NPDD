@@ -1,0 +1,904 @@
+p {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+
+.maindep .p1 {
+    border-radius: 15px;
+    border: 3px solid #ffe992;
+    background: #fdf9d6;
+    box-shadow: 2px 2px 2px #ccc;
+    margin-bottom: 3px;
+}
+
+.maindep .p2 {
+    border-radius: 15px;
+    border: 3px solid #b1c781;
+    background: #f1fdd6;
+    box-shadow: 2px 2px 2px #ccc;
+    margin-bottom: 3px;
+}
+
+.maindep .p3 {
+    border-radius: 15px;
+    border: 3px solid #7a9586;
+    background: #c2f7db;
+    box-shadow: 2px 2px 2px #ccc;
+    margin-bottom: 3px;
+}
+
+.maindep .p4 {
+    border-radius: 15px;
+    border: 3px solid #5c6871;
+    background: #d6ecfd;
+    box-shadow: 2px 2px 2px #ccc;
+    margin-bottom: 3px;
+}
+
+.maindep .p5 {
+    border-radius: 15px;
+    border: 3px solid #826a87;
+    background: #f7d6fd;
+    box-shadow: 2px 2px 2px #ccc;
+    margin-bottom: 3px;
+}
+
+.maindep .p6 {
+    border-radius: 15px;
+    border: 3px solid #4a90e2;
+    background: #d6e9f7;
+    box-shadow: 2px 2px 2px #ccc;
+    margin-bottom: 3px;
+}
+
+.maindep p {
+    font-size: 16px;
+    color: #5f5c5c;
+    padding: 5px 6px;
+    /* line-height: 1.2;
+    margin-bottom: 0px; */
+}
+
+.maindep .d1 .dephead {
+    font-size: 14px;
+    color: #185519;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.maindep .d1 p {
+    color: #556341;
+    line-height: 1.2
+}
+
+.maindep .d1 h3 {
+    color: #e24e0f;
+    font-size: 16px;
+    text-align: center;
+}
+
+.smallheader {
+    background: #ffd6d6;
+    border-radius: 1rem;
+    font-weight: bold !important;
+    font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .maindep p {
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .maindep h3 {
+        text-align: center;
+    }
+
+    .maindep .d1 .dephead {
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    .smallheader h5 {
+        font-size: 12px;
+    }
+
+    .maindep .d1 h3 {
+        font-size: 13px;
+        text-align: right;
+    }
+
+    .row-span-7>* {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+
+::ng-deep .highcharts-background {
+    fill: transparent !important;
+}
+
+::ng-deep .highcharts-credits {
+    display: none;
+}
+
+.star-container {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+/* Base Star (Gray, showing empty star) */
+.star-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+/* Overlay Star (Fully Colored) */
+.star-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 18px;
+    color: transparent;
+    /* Prevents full coloring */
+}
+
+/* Full Stars */
+.star-full.red {
+    color: red !important;
+}
+
+.star-full.orange {
+    color: orange !important;
+}
+
+.star-full.yellow {
+    color: yellow !important;
+}
+
+.star-full.light-green {
+    color: #64e664 !important;
+}
+
+.star-full.thick-green {
+    color: green !important;
+}
+
+/* Half Stars (Clip Path for Perfect Half-Fill) */
+.star-half {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    /* Default to empty star */
+}
+
+.star-half.red {
+    color: red !important;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+}
+
+.star-half.orange {
+    color: orange !important;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+}
+
+.star-half.yellow {
+    color: yellow !important;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+}
+
+.star-half.light-green {
+    color: #64e664 !important;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+}
+
+.star-half.thick-green {
+    color: green !important;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+}
+
+/* Empty Stars */
+.star-empty {
+    color: white !important;
+}
+
+.sidecards p {
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+}
+
+.sidecards h4 {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0.15rem;
+    color: #fff;
+}
+
+.sidecards hr {
+    margin: 0.15rem 0px !important;
+    background-color: #d1d1d1 !important;
+    border-top-color: #e4e4e4;
+}
+
+.ministercards .card.bg0 {
+    border: 4px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(90deg, #fabb0e 0%, #fff 50%, #fabb0e 100%) border-box;
+}
+
+.ministercards .card.bg0 p {
+    color: #dfa300;
+}
+
+.ministercards .card.bg1 {
+    border: 4px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(90deg, #9b2ac8 0%, #fff 50%, #9b2ac8 100%) border-box;
+}
+
+.ministercards .card.bg1 p {
+    color: #9b2ac8;
+}
+
+.ministercards .card.bg2 {
+    border: 4px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(90deg, #e98630 0%, #fff 50%, #e98630 100%) border-box;
+}
+
+.ministercards .card.bg2 p {
+    color: #e98630;
+}
+
+.ministercards .card.bg3 {
+    border: 4px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(90deg, #1695e9 0%, #fff 50%, #1695e9 100%) border-box;
+}
+
+.ministercards .card.bg3 p {
+    color: #1695e9;
+}
+
+.ministercards .card.bg4 {
+    border: 4px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(90deg, #fca708 0%, #fff 50%, #fca708 100%) border-box;
+}
+
+.ministercards .card.bg4 p {
+    color: #fca708;
+}
+
+.ministercards .card.bg5 {
+    border: 4px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(90deg, #d521d8 0%, #fff 50%, #d521d8 100%) border-box;
+}
+
+.ministercards .card.bg5 p {
+    color: #d521d8;
+}
+
+.ministercards .card.bg6 {
+    border: 4px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(90deg, #14b141 0%, #fff 50%, #14b141 100%) border-box;
+}
+
+.ministercards .card.bg6 p {
+    color: #14b141;
+}
+
+.ministercards .card.bg7 {
+    border: 4px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(90deg, #ff5733 0%, #fff 50%, #ff5733 100%) border-box;
+}
+
+.ministercards .card.bg7 p {
+    color: #ff5733;
+}
+
+.ministercards .card.bg8 {
+    border: 4px solid transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(90deg, #9fd400 0%, #fff 50%, #9fd400 100%) border-box;
+}
+
+.ministercards .card.bg8 p {
+    color: #9fd400;
+}
+
+.ministercards .card .card-body {
+    padding: 0.25rem 0.25rem;
+}
+
+.ministercards .card h1 {
+    font-size: 1.2rem;
+}
+
+.ministercards .card p {
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.department .card .card-body {
+    padding: 0.75rem;
+}
+
+.department h3 {
+    font-size: 1.3rem;
+}
+
+.department h4 {
+    color: #fff;
+    text-align: center;
+}
+
+.department small {
+    color: #fff;
+    margin-left: 5px;
+}
+
+.department p {
+    color: #fff;
+    text-align: center;
+}
+
+.department .bg-1 {
+    background: #791133 !important;
+}
+
+.department .bg-2 {
+    background: #ec6816 !important;
+}
+
+.department .bg-3 {
+    background: #cb59d5 !important;
+}
+
+.department .progress-bar {
+    transition: none !important;
+}
+
+.kpidashboard .card {
+    border-top: 2px solid #0078b7;
+    border-bottom: 2px solid #0078b7;
+    border-radius: 1.1rem;
+}
+
+.kpidashboard .card .card-header {
+    background: none !important;
+}
+
+.kpidashboard .card .yes-no span {
+    font-size: 11px;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    font-weight: 600;
+}
+
+.kpidashboard .card h3 {
+    background: #0078b7;
+    border-radius: 0.25rem;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.kpidashboard .card h4 {
+    height: 40px;
+    max-height: 40px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.kpidashboard .card h5 {
+    color: #0f0e96 !important;
+    font-size: 1.1rem !important;
+}
+
+.kpidashboard .card p {
+    font-size: 13px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.kpidashboard .card p.questionnaire {
+    font-size: 12px;
+    line-height: 1.1;
+    font-weight: 600;
+    height: 27px;
+    max-height: 27px;
+}
+
+.kpidashboard .card .btn-sm {
+    padding: 0.05rem 2.2rem;
+    line-height: 1.2;
+}
+
+/* .kpidashboard .card .yes-no span:first-child{
+    border-right:1px solid #ddd;
+} */
+.kpidashboard .card .progress-stacked,
+.kpidashboard .card .progress {
+    height: 0.5rem;
+    line-height: 1.2;
+}
+
+.maplegend .card {
+    min-width: 220px;
+    min-height: 220px;
+    margin-bottom: 0px !important;
+    box-shadow: none !important;
+}
+.maplegend ul li{
+    margin-bottom: 0.5rem;
+}
+.maplegend ul li span{
+    display: inline-block;
+    position: relative;
+}
+.maplegend ul li strong{
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    position: relative;
+}
+.mapbg {
+    /* background: url(/assets/images/dashboard-bg.jpg) no-repeat; */
+    background-size: contain;
+    background-position: center bottom;
+}
+
+.maindep .table thead tr th {
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.maindep .table thead tr th:first-child,
+.maindep .table tfoot tr th:first-child {
+    border-radius: 2rem 0rem 0rem 2rem;
+}
+
+.maindep .table thead tr th:last-child,
+.maindep .table tfoot tr th:last-child {
+    border-radius: 0rem 2rem 2rem 0rem;
+}
+
+.maindep .table tbody tr td h3,
+.maindep .table tbody tr td p {
+    font-size: 14px;
+    line-height: 1.2;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+}
+
+.filter .nav.nav-pills {
+    box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter .nav.nav-pills .nav-link.active {
+    background: #234a7d !important;
+}
+
+.filter .nav.nav-pills .nav-link {
+    border: none;
+    font-weight: 800;
+    background: none;
+}
+
+.star-container {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.star-base {
+    color: #ccc;
+    position: absolute;
+    line-height: 1.2;
+}
+
+.star-overlay {
+    position: absolute;
+    color: orange;
+    line-height: 1.2;
+}
+
+.text-orange {
+    color: rgb(255, 128, 0);
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none;
+    transform: translate(-50%, -100%);
+    white-space: nowrap;
+    z-index: 100;
+}
+@media screen and (max-width: 1399.98px) {
+    .maindep .table thead tr th{
+        font-size: 9px;
+    }
+    .maindep .table tbody tr td h3{
+        font-size: 10px;
+        line-height: 1.2;
+        padding: 0;
+        margin: 0;
+    }
+    .maindep .table tbody tr td p{
+        font-size: 10px;
+        line-height: 1.2;
+        padding: 0;
+        margin: 0;
+        color: #000;
+        font-weight: 700;
+    }
+    .sidecards h2{
+        font-size: 18px;
+    }
+    .sidecards p{
+        font-size: 10px;
+    }
+    .sidecards h4{
+        font-size: 12px;
+    }
+    .ministercards .card p{
+        font-size: 10px;
+    }
+    .kpidashboard .card h3{
+        font-size: 0.65rem;
+    }
+    .kpidashboard .card h4{
+        font-size: 0.8rem;
+    }
+    .kpidashboard .card p,.kpidashboard .card p.questionnaire{
+        font-size: 10px;}
+    .department h3{
+        font-size: 1rem;
+    }
+  }
+
+@media (min-width: 992px) {
+    ::ng-deep .row-cols-lg-auto>* {
+        flex: 1 0;
+        width: auto;
+    }
+}
+
+
+::ng-deep p-dialog.p-element{
+    z-index: 99999 !important;
+    position: relative;
+}
+/* investdashboard */
+/* .maininvest .card{
+  
+}*/
+.investdashboard .card {
+    /* background: #f8f9fa; */
+    background: #fafcff;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-left: 1px solid #000;
+    width:100%;
+    transition: all 300ms ease;
+}
+.investdashboard .card:hover{
+    transform: translateY(-10px);
+}
+.investdashboard .card h3{
+    color: #5b5d5f !important;
+    font-size: 16px;
+    margin-bottom: 5px !important;
+}
+.investdashboard .card p{
+    color: #e74c3c !important;
+    font-size: 20px;
+    font-weight: 700;
+}
+.mainind img {
+    width: 100%; /* control size */
+  }
+.mainind h3 {
+	color: #5b5d5f !important;
+    font-size: 21px;
+    margin-bottom: 5px !important;
+    transition: all 300ms ease;
+  }
+.mainind p {
+    color: #e74c3c !important;
+    font-size: 23px;
+    font-weight: 700;
+    transition: all 300ms ease;
+  }
+
+
+  .card-bx img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      border-radius: 0.75rem;
+      object-fit: cover;
+  }
+  .card-bx.bg-1{
+    background-image: radial-gradient( circle farthest-corner at -5.6% -6.8%,  rgba(103,49,145,1) 37.3%, rgba(50,0,129,1) 73.5% );
+  }
+  .card-bx.bg-2{
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(214,40,40,1) 0%, rgba(255,195,0,1) 90% );
+  }
+  .card-bx.bg-3{
+    background-image: radial-gradient( circle farthest-corner at 96.1% 7.2%,  rgba(9,178,62,1) 0%, rgba(19,19,19,1) 100.2% );
+  }
+  .card-bx.bg-4{
+    background-image: radial-gradient( circle 938px at 0.2% 0.3%,  rgba(247,0,0,1) 0.1%, rgba(33,5,207,1) 100.2% );
+  }
+  .card-bx.bg-5{
+    background-image: linear-gradient( 108.7deg,  rgba(221,22,224,1) 11%, rgba(111,22,190,1) 88.2% );
+  }
+  .card-bx.bg-6{
+    background-image: radial-gradient( circle 975px at 2.6% 48.3%,  rgba(0,8,120,1) 0%, rgba(95,184,224,1) 99.7% );
+  }
+
+  @media only screen and (max-width: 575px) {
+      .card-bx img {
+          border-radius: 6px;
+      }
+  }
+
+  .card-bx .card-info {
+      position: relative;
+      padding: 15px 15px;
+  }
+
+  .card-bx .card-info .num-text {
+      font-size: 28px;
+  }
+  .fs-12 {
+    font-size: 12px !important;
+    line-height: 1.2;
+    color: #fff !important;
+}
+
+
+
+
+/* investdashboard */
+.maininvest .card{
+    position: relative;
+}
+.investdashboard .card {
+    /* background: #f8f9fa; */
+    background: #fafcff;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-left: 5px solid transparent;
+    width:100%;
+    transition: all 300ms ease;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem !important;
+    position: relative;
+}
+.investdashboard .card h3{
+    color: #fff !important;
+    font-size: 16px;
+    margin-bottom: 5px !important;
+    padding-left: 70px;
+}
+.investdashboard .card p{
+    color: #fff !important;
+    font-size: 20px;
+    font-weight: 700;
+}
+.investdashboard .card .counts h3{
+    margin: 0;}
+.investdashboard .card .counts p{
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.investdashboard .card .icon{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    left: 10px;
+    top: -20px;
+    border-radius: 1rem;
+    box-shadow: var(--bs-box-shadow);
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.investdashboard .card .icon img{
+    filter: invert(1);
+    opacity: 0.7;
+}
+.investdashboard .card::before{
+    background: url('/assets/images/lines-black.png') no-repeat;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-position: center right;
+}
+
+.investdashboard .card.bg-1{
+    background: linear-gradient(147deg, #6D02DC, #3B0176);
+    border-color: #ae72ea;
+}
+.investdashboard .card.bg-2{
+    background: linear-gradient(147deg, #0B58E7, #063181);
+    border-color: #93b6f8;
+}
+.investdashboard .card.bg-3{
+    background: linear-gradient(147deg, #19E274, #00A048);
+    border-color: #82e8b0;
+}
+.investdashboard .card.bg-4{
+    background: linear-gradient(147deg, #F14B33, #8B2B1D);
+    border-color: #f3aca1;
+}
+.investdashboard .card.bg-5{
+    background: linear-gradient(147deg, #F5C31B, #8F7210);
+    border-color: #f0d374;
+}
+.investdashboard .card.bg-6{
+    background: linear-gradient(147deg, #E741EB, #832585);
+    border-color: #fd9aff;
+}
+.investdashboard .card.bg-7{
+    background: linear-gradient(147deg, #1DB1D6, #0F5C70);
+    border-color: #9ae3f5;
+}
+.investdashboard .card.bg-8{
+    background: linear-gradient(147deg, #72CB13, #396509);
+    border-color: #bcf084;
+}
+
+.investdashboard .card .icon.bg-1{
+    background: #DEC1FC;
+}
+.investdashboard .card .icon.bg-2{
+    background: #8AB4FF;
+}
+.investdashboard .card .icon.bg-3{
+    background: #BCF2D4;
+}
+.investdashboard .card .icon.bg-4{
+    background: #FFCAC2;
+}
+.investdashboard .card .icon.bg-5{
+    background: #EAD798;
+}
+.investdashboard .card .icon.bg-6{
+    background: #FDAEFF;
+}
+.investdashboard .card .icon.bg-7{
+    background: #84DCF2;
+}
+.investdashboard .card .icon.bg-8{
+    background: #B2F26D;
+}
+.mainind h3 {
+	color: #5b5d5f !important;
+    font-size: 21px;
+    margin-bottom: 5px !important;
+    transition: all 300ms ease;
+  }
+.mainind p {
+    color: #e74c3c !important;
+    font-size: 23px;
+    font-weight: 700;
+    transition: all 300ms ease;
+  }
+
+
+  .card-bx img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      border-radius: 0.75rem;
+      object-fit: cover;
+  }
+
+  @media only screen and (max-width: 575px) {
+      .card-bx img {
+          border-radius: 6px;
+      }
+  }
+
+  .card-bx .card-info {
+      position: relative;
+      padding: 15px 15px;
+  }
+
+  .card-bx .card-info .num-text {
+      font-size: 28px;
+  }
+  .fs-12 {
+    font-size: 12px !important;
+    line-height: 1.2;
+    color: #fff !important;
+}
+
+.form-label{
+    font-weight: 800;
+    color: #000;
+}
+
+.card-custom{
+    background: #d23737 !important;
+    color: #fff;
+    position: absolute;
+    border-radius: 2rem;
+    display: inline-block;
+    width: 90%;
+    text-align: center;
+    font-weight: 800;
+    top: -10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 2px solid #fff;
+    box-shadow: var(--bs-box-shadow);
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+  
+    .card-header {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+
+.chart-container {
+
+  
+  .chart-controls {
+    max-width: 300px;
+    
+    .form-select {
+      border-radius: 20px;
+      border-color: #ddd;
+      box-shadow: none;
+      
+      &:focus {
+        border-color: #4285F4;
+        box-shadow: 0 0 0 0.25rem rgba(66, 133, 244, 0.25);
+      }
+    }
+  }
+}
