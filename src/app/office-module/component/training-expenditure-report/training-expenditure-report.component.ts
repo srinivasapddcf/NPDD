@@ -95,7 +95,7 @@ if(this.Speakers==false && this.Participants==false && this.Documents==false && 
         this.toast.warning("Please select at least one option to generate report");return;
 }
 
-    
+    debugger;
 
       this.spinner.show(); 
       const req = {
@@ -145,6 +145,44 @@ if(this.Speakers==false && this.Participants==false && this.Documents==false && 
         this.toast.info(res.message);
       }
       // this.rerender();
+      this.spinner.hide();
+    } catch (error) {
+      this.spinner.hide();
+      this.utils.catchResponse(error);
+    }
+  }
+
+  		  async btnPdfView(pdf): Promise<void> {
+    try {
+      this.spinner.show();
+      const res = await this.utils.DMSFileDownload(pdf);
+      if (res.success) {
+        //this.utils.downloadPdf(res.result,pdf);
+         this.utils.viewPDF(res.result);
+        // let signedByPdf = 'data:application/pdf, ' + res.result;
+        // window.open(signedByPdf, '_blank');
+      } else {
+        this.toast.info(res.message);
+      }
+      this.spinner.hide();
+    } catch (error) {
+      this.spinner.hide();
+      this.utils.catchResponse(error);
+    }
+  }
+  
+		  async btnImgView(pdf): Promise<void> {
+    try { debugger;
+      this.spinner.show();
+      const res = await this.utils.DMSFileDownload(pdf);
+      if (res.success) {
+        this.utils.viewImage(res.result);
+       // this.utils.viewPDF(res.result);
+        // let signedByPdf = 'data:application/pdf, ' + res.result;
+        // window.open(signedByPdf, '_blank');
+      } else {
+        this.toast.info(res.message);
+      }
       this.spinner.hide();
     } catch (error) {
       this.spinner.hide();
