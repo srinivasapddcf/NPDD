@@ -641,15 +641,24 @@ debugger;
       if (res.success) { 
          this.spinner.hide(); this.showaprovedPopup = false;
         if (this.num1 == "2") { 
+        if(res.result[0].STATUS == "1")
           this.toast.success("Details Approved Successfully ... !");
-        
+         else if(res.result[0].STATUS == "2")  
+          this.toast.error(res.result[0].message);
+        else    
+          this.toast.error(res.result[0].message);
           return; 
         } 
        else if (this.num1 == "3") { 
           this.spinner.hide();
           this.showaprovedPopup = false;
-
+        if(res.result[0].STATUS == "1")  
           this.toast.error(" Details Rejected Successfully ... !");
+        else if(res.result[0].STATUS == "2")  
+          this.toast.error(res.result[0].message);
+        else    
+          this.toast.error(res.result[0].message);
+ 
           //this.loadReport("0");
           return;
         }
