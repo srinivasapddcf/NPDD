@@ -342,7 +342,7 @@ this.id=obj;
         // this.excelDataA.push(this.reportTotalsA);
 
 
-
+ 
 
 
       } else {
@@ -641,8 +641,12 @@ debugger;
       if (res.success) { 
          this.spinner.hide(); this.showaprovedPopup = false;
         if (this.num1 == "2") { 
-        if(res.result[0].STATUS == "1")
+        if(res.result[0].STATUS == "1"){
           this.toast.success("Details Approved Successfully ... !");
+          setTimeout(() => {  
+                    window.location.reload(); 
+            }, 2000);
+        }
          else if(res.result[0].STATUS == "2")  
           this.toast.error(res.result[0].message);
         else    
@@ -652,8 +656,12 @@ debugger;
        else if (this.num1 == "3") { 
           this.spinner.hide();
           this.showaprovedPopup = false;
-        if(res.result[0].STATUS == "1")  
+        if(res.result[0].STATUS == "1") { 
           this.toast.error(" Details Rejected Successfully ... !");
+          setTimeout(() => {  
+                    window.location.reload(); 
+            }, 2000);
+        }
         else if(res.result[0].STATUS == "2")  
           this.toast.error(res.result[0].message);
         else    
@@ -665,13 +673,26 @@ debugger;
         else if (this.num1 == "4") { 
           this.spinner.hide();
           this.showaprovedPopup = false;
-          this.toast.success("Additional Information Request Inserted Successfully ... !"); 
+          this.toast.success("Additional Information Request Inserted Successfully ... !");
+          
+          setTimeout(() => {  
+                    window.location.reload(); 
+            }, 2000);
+
+
+
           return; 
         }
          else if (this.num1 == "6") {
           this.spinner.hide();
           this.showaprovedPopup = false;
           this.toast.success("Resubmitted Application Approved Successfully ... !"); 
+
+           
+          setTimeout(() => {  
+                    window.location.reload(); 
+            }, 2000);
+
           return; 
         }
         //  else if (res.result[0].STATUS == "6") {

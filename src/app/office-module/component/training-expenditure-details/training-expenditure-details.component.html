@@ -371,7 +371,7 @@
 <!-- ,'SPEAKER_IMG2_PDF','SPEAKER_IMG3_PDF','SPEAKER_IMG4_PDF'   ,'PRCT_ATND_IMG2_PDF','PRCT_ATND_IMG3_PDF','PRCT_ATND_IMG4_PDF' -->
         <p-table id="tbltable" [value]="jobDetailsList" [paginator]="true" [rows]="jobDetailsList.length" #dt2
           [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
-          [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
+          [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','MANDALNAME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
           styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
           [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}" [scrollable]="true" sortMode="multiple"
           scrollHeight="560px">
@@ -409,6 +409,9 @@
   <th  class="bgc">TRAINING TYPE</th>
   <th  class="bgc">TRAINING DATE</th>
   <th  class="bgc">TRAINING TIME</th>
+  <th  class="bgc">MANDALNAME</th>
+   
+
   <th  class="bgc">VENU</th>
   <th  class="bgc">VILLAGES</th>
   <th  class="bgc">NO OF SPEAKERS</th>
@@ -432,18 +435,20 @@
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_ID"> 3<p-sortIcon  field="TRAINING_ID"  style="color: white !important;" /></th>
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_DATE"> 4<p-sortIcon   field="TRAINING_DATE" style="color: white !important;" /></th>
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_TIME"> 5<p-sortIcon  field="TRAINING_TIME"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 6<p-sortIcon   field="VENU" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 7<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 8<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 9<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 10<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 11<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn=""> 12 </th>
-<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13</th>
+
+<th  class="bgc" style="text-align: center;" pSortableColumn="MANDALNAME"> 6<p-sortIcon  field="MANDALNAME"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 7<p-sortIcon   field="VENU" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 8<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 9<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 10<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 11<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 12<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13 </th>
 <th  class="bgc" style="text-align: center;" pSortableColumn=""> 14</th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 15<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 16<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;"  > 17 </th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 15</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 16<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 17<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;"  > 18 </th>
 
     </tr> 
               
@@ -458,6 +463,7 @@
               <td style="white-space: normal; text-align:  left !important;">{{ obj.TRAINING_ID }}</td>
               <td style="white-space: normal; text-align:  center !important;">{{obj.TRAINING_DATE.substring(0, 10)  }}</td>
               <td style="text-align:  right !important;">{{obj.TRAINING_TIME}}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{obj.MANDALNAME}}</td>
                <td style="white-space: normal; text-align:  left !important;">{{obj.VENU}}</td>
                 <td style="white-space: normal; text-align:  left !important;">{{obj.VILLAGES}}</td>
 
@@ -471,7 +477,7 @@
 
   <button  *ngIf="obj.ATND_PDF !== null && obj.ATND_PDF !== 'NA' &&  obj.ATND_PDF !== undefined "
     (click)="btnPdfView(obj.ATND_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> ATTENDANCE
 </button>
 
@@ -480,7 +486,7 @@
 
     <button *ngIf="obj.HONORARIUM_TA_BILL_PDF !== null && obj.HONORARIUM_TA_BILL_PDF !== 'NA' &&  obj.HONORARIUM_TA_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.HONORARIUM_TA_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> HONORARIUM TA BILL
 </button>
 
@@ -490,7 +496,7 @@
 
    <button *ngIf="obj.REFRESHMENT_BILL_PDF !== null && obj.REFRESHMENT_BILL_PDF !== 'NA' &&  obj.REFRESHMENT_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.REFRESHMENT_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> REFRESHMENT BILL
 </button>
  <br /><br /> 
@@ -498,7 +504,7 @@
 
   <button *ngIf="obj.STATIONARY_TRN_BILL_PDF !== null && obj.STATIONARY_TRN_BILL_PDF !== 'NA' &&  obj.STATIONARY_TRN_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.STATIONARY_TRN_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
     word-wrap: normal;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> STATIONARY TRN BILL
 </button>
@@ -639,7 +645,7 @@
 
         <p-table id="tbltable" [value]="jobDetailsListaddinf" [paginator]="true" [rows]="jobDetailsListaddinf.length" #dt2
           [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
-            [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
+            [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','MANDALNAME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
           styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
           [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}" [scrollable]="true" sortMode="multiple"
           scrollHeight="560px">
@@ -681,6 +687,8 @@
   <th  class="bgc">TRAINING TYPE</th>
   <th  class="bgc">TRAINING DATE</th>
   <th  class="bgc">TRAINING TIME</th>
+  
+  <th  class="bgc">MANDAL</th>
   <th  class="bgc">VENU</th>
   <th  class="bgc">VILLAGES</th>
   <th  class="bgc">NO OF SPEAKERS</th>
@@ -704,17 +712,19 @@
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_ID"> 3<p-sortIcon  field="TRAINING_ID"  style="color: white !important;" /></th>
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_DATE"> 4<p-sortIcon   field="TRAINING_DATE" style="color: white !important;" /></th>
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_TIME"> 5<p-sortIcon  field="TRAINING_TIME"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 6<p-sortIcon   field="VENU" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 7<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 8<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 9<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 10<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 11<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn=""> 12 </th>
-<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13</th>
+
+<th  class="bgc" style="text-align: center;" pSortableColumn="MANDALNAME"> 6<p-sortIcon   field="MANDAL" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 7<p-sortIcon   field="VENU" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 8<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 9<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 10<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 11<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 12<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13 </th>
 <th  class="bgc" style="text-align: center;" pSortableColumn=""> 14</th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 15<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 16<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 15</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 16<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 17<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
  
 
     </tr> 
@@ -732,6 +742,10 @@
               <td style="white-space: normal; text-align:  left !important;">{{ obj.TRAINING_ID }}</td>
               <td style="white-space: normal; text-align:  center !important;">{{obj.TRAINING_DATE.substring(0, 10)  }}</td>
               <td style="text-align:  right !important;">{{obj.TRAINING_TIME}}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{obj.MANDALNAME}}</td>
+
+              
+
                <td style="white-space: normal; text-align:  left !important;">{{obj.VENU}}</td>
                 <td style="white-space: normal; text-align:  left !important;">{{obj.VILLAGES}}</td>
 
@@ -745,7 +759,7 @@
 
   <button  *ngIf="obj.ATND_PDF !== null && obj.ATND_PDF !== 'NA' &&  obj.ATND_PDF !== undefined "
     (click)="btnPdfView(obj.ATND_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> ATTENDANCE
 </button>
 
@@ -754,7 +768,7 @@
 
     <button *ngIf="obj.HONORARIUM_TA_BILL_PDF !== null && obj.HONORARIUM_TA_BILL_PDF !== 'NA' &&  obj.HONORARIUM_TA_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.HONORARIUM_TA_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> HONORARIUM TA BILL
 </button>
 
@@ -764,7 +778,7 @@
 
    <button *ngIf="obj.REFRESHMENT_BILL_PDF !== null && obj.REFRESHMENT_BILL_PDF !== 'NA' &&  obj.REFRESHMENT_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.REFRESHMENT_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> REFRESHMENT BILL
 </button>
  <br /><br /> 
@@ -772,7 +786,7 @@
 
   <button *ngIf="obj.STATIONARY_TRN_BILL_PDF !== null && obj.STATIONARY_TRN_BILL_PDF !== 'NA' &&  obj.STATIONARY_TRN_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.STATIONARY_TRN_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
     word-wrap: normal;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> STATIONARY TRN BILL
 </button>
@@ -893,7 +907,7 @@
 
         <p-table id="tbltable" [value]="jobDetailsListresub" [paginator]="true" [rows]="jobDetailsListresub.length" #dt2
           [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
-            [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
+            [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','MANDALNAME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
           styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
           [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}" [scrollable]="true" sortMode="multiple"
           scrollHeight="560px">
@@ -933,6 +947,7 @@
   <th  class="bgc">TRAINING TYPE</th>
   <th  class="bgc">TRAINING DATE</th>
   <th  class="bgc">TRAINING TIME</th>
+  <th  class="bgc">MANDALNAME</th>
   <th  class="bgc">VENU</th>
   <th  class="bgc">VILLAGES</th>
   <th  class="bgc">NO OF SPEAKERS</th>
@@ -956,18 +971,20 @@
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_ID"> 3<p-sortIcon  field="TRAINING_ID"  style="color: white !important;" /></th>
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_DATE"> 4<p-sortIcon   field="TRAINING_DATE" style="color: white !important;" /></th>
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_TIME"> 5<p-sortIcon  field="TRAINING_TIME"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 6<p-sortIcon   field="VENU" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 7<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 8<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 9<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 10<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 11<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn=""> 12 </th>
-<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="MANDALNAME"> 6<p-sortIcon  field="MANDALNAME"  style="color: white !important;" /></th>
+
+<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 7<p-sortIcon   field="VENU" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 8<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 9<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 10<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 11<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 12<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13 </th>
 <th  class="bgc" style="text-align: center;" pSortableColumn=""> 14</th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 15<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 16<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
- <th  class="bgc" style="text-align: center;" > 17<p-sortIcon style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 15</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 16<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 17<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
+ <th  class="bgc" style="text-align: center;" > 18<p-sortIcon style="color: white !important;" /></th>
 
     </tr> 
               
@@ -983,6 +1000,7 @@
               <td style="white-space: normal; text-align:  left !important;">{{ obj.TRAINING_ID }}</td>
               <td style="white-space: normal; text-align:  center !important;">{{obj.TRAINING_DATE.substring(0, 10)  }}</td>
               <td style="text-align:  right !important;">{{obj.TRAINING_TIME}}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{obj.MANDALNAME}}</td>
                <td style="white-space: normal; text-align:  left !important;">{{obj.VENU}}</td>
                 <td style="white-space: normal; text-align:  left !important;">{{obj.VILLAGES}}</td>
 
@@ -996,7 +1014,7 @@
 
   <button  *ngIf="obj.ATND_PDF !== null && obj.ATND_PDF !== 'NA' &&  obj.ATND_PDF !== undefined "
     (click)="btnPdfView(obj.ATND_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> ATTENDANCE
 </button>
 
@@ -1005,7 +1023,7 @@
 
     <button *ngIf="obj.HONORARIUM_TA_BILL_PDF !== null && obj.HONORARIUM_TA_BILL_PDF !== 'NA' &&  obj.HONORARIUM_TA_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.HONORARIUM_TA_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> HONORARIUM TA BILL
 </button>
 
@@ -1015,7 +1033,7 @@
 
    <button *ngIf="obj.REFRESHMENT_BILL_PDF !== null && obj.REFRESHMENT_BILL_PDF !== 'NA' &&  obj.REFRESHMENT_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.REFRESHMENT_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> REFRESHMENT BILL
 </button>
  <br /><br /> 
@@ -1023,7 +1041,7 @@
 
   <button *ngIf="obj.STATIONARY_TRN_BILL_PDF !== null && obj.STATIONARY_TRN_BILL_PDF !== 'NA' &&  obj.STATIONARY_TRN_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.STATIONARY_TRN_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
     word-wrap: normal;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> STATIONARY TRN BILL
 </button>
@@ -1160,7 +1178,7 @@
       <div class="card-body">
         <p-table id="tbltable" [value]="jobDetailsListA" [paginator]="true" [rows]="jobDetailsListA.length" #dt2
           [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
-           [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
+           [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','MANDALNAME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
           styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
           [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}" [scrollable]="true" sortMode="multiple"
           scrollHeight="560px">
@@ -1196,6 +1214,7 @@
   <th  class="bgc">TRAINING TYPE</th>
   <th  class="bgc">TRAINING DATE</th>
   <th  class="bgc">TRAINING TIME</th>
+  <th  class="bgc">MANDALNAME</th>
   <th  class="bgc">VENU</th>
   <th  class="bgc">VILLAGES</th>
   <th  class="bgc">NO OF SPEAKERS</th>
@@ -1219,17 +1238,18 @@
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_ID"> 3<p-sortIcon  field="TRAINING_ID"  style="color: white !important;" /></th>
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_DATE"> 4<p-sortIcon   field="TRAINING_DATE" style="color: white !important;" /></th>
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_TIME"> 5<p-sortIcon  field="TRAINING_TIME"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 6<p-sortIcon   field="VENU" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 7<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 8<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 9<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 10<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 11<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn=""> 12 </th>
-<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="MANDALNAME"> 6<p-sortIcon  field="MANDALNAME"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 7<p-sortIcon   field="VENU" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 8<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 9<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 10<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 11<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 12<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13 </th>
 <th  class="bgc" style="text-align: center;" pSortableColumn=""> 14</th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 15<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 16<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 15</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 16<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 17<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
  
 
     </tr> 
@@ -1247,6 +1267,7 @@
               <td style="white-space: normal; text-align:  left !important;">{{ obj.TRAINING_ID }}</td>
               <td style="white-space: normal; text-align:  center !important;">{{obj.TRAINING_DATE.substring(0, 10)  }}</td>
               <td style="text-align:  right !important;">{{obj.TRAINING_TIME}}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{obj.MANDALNAME}}</td>
                <td style="white-space: normal; text-align:  left !important;">{{obj.VENU}}</td>
                 <td style="white-space: normal; text-align:  left !important;">{{obj.VILLAGES}}</td>
 
@@ -1260,7 +1281,7 @@
 
   <button  *ngIf="obj.ATND_PDF !== null && obj.ATND_PDF !== 'NA' &&  obj.ATND_PDF !== undefined "
     (click)="btnPdfView(obj.ATND_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> ATTENDANCE
 </button>
 
@@ -1269,7 +1290,7 @@
 
     <button *ngIf="obj.HONORARIUM_TA_BILL_PDF !== null && obj.HONORARIUM_TA_BILL_PDF !== 'NA' &&  obj.HONORARIUM_TA_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.HONORARIUM_TA_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> HONORARIUM TA BILL
 </button>
 
@@ -1279,7 +1300,7 @@
 
    <button *ngIf="obj.REFRESHMENT_BILL_PDF !== null && obj.REFRESHMENT_BILL_PDF !== 'NA' &&  obj.REFRESHMENT_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.REFRESHMENT_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> REFRESHMENT BILL
 </button>
  <br /><br /> 
@@ -1287,7 +1308,7 @@
 
   <button *ngIf="obj.STATIONARY_TRN_BILL_PDF !== null && obj.STATIONARY_TRN_BILL_PDF !== 'NA' &&  obj.STATIONARY_TRN_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.STATIONARY_TRN_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
     word-wrap: normal;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> STATIONARY TRN BILL
 </button>
@@ -1407,7 +1428,7 @@
 
         <p-table id="tbltable" [value]="jobDetailsListR" [paginator]="true" [rows]="jobDetailsListR.length" #dt2
           [rowsPerPageOptions]="[10, 20, 30,40,{ showAll: 'All' }]"
-           [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
+           [globalFilterFields]="['DISTRICT','TRAINING_ID','TRAINING_DATE','TRAINING_TIME','MANDALNAME','VENU','VILLAGES','NO_OF_SPEAKERS','NO_OF_PARTICIPANT','EXPENDITURE','COST_PER_PARTICIPANT','SUB_DATE','STATUS']"
           styleClass="p-datatable-gridlines p-datatable-striped p-datatable-sm"
           [tableStyle]="{ 'min-width': '75rem','min-height':'90%'}" [scrollable]="true" sortMode="multiple"
           scrollHeight="560px">
@@ -1459,6 +1480,7 @@
   <th  class="bgc">TRAINING TYPE</th>
   <th  class="bgc">TRAINING DATE</th>
   <th  class="bgc">TRAINING TIME</th>
+  <th  class="bgc">MANDALNAME</th>
   <th  class="bgc">VENU</th>
   <th  class="bgc">VILLAGES</th>
   <th  class="bgc">NO OF SPEAKERS</th>
@@ -1482,17 +1504,19 @@
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_ID"> 3<p-sortIcon  field="TRAINING_ID"  style="color: white !important;" /></th>
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_DATE"> 4<p-sortIcon   field="TRAINING_DATE" style="color: white !important;" /></th>
 <th  class="bgc" style="text-align: center;" pSortableColumn="TRAINING_TIME"> 5<p-sortIcon  field="TRAINING_TIME"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 6<p-sortIcon   field="VENU" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 7<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 8<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT"> 9<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 10<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 11<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn=""> 12 </th>
-<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="MANDALNAME"> 6<p-sortIcon  field="MANDALNAME"  style="color: white !important;" /></th>
+
+<th  class="bgc" style="text-align: center;" pSortableColumn="VENU"> 7<p-sortIcon   field="VENU" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="VILLAGES"> 8<p-sortIcon  field="VILLAGES"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_SPEAKERS"> 9<p-sortIcon  field="NO_OF_SPEAKERS"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="NO_OF_PARTICIPANT">10<p-sortIcon   field="NO_OF_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="EXPENDITURE"> 11<p-sortIcon  field="EXPENDITURE"  style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="COST_PER_PARTICIPANT"> 12<p-sortIcon   field="COST_PER_PARTICIPANT" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 13 </th>
 <th  class="bgc" style="text-align: center;" pSortableColumn=""> 14</th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 15<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
-<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 16<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn=""> 15</th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="SUB_DATE"> 16<p-sortIcon   field="SUB_DATE" style="color: white !important;" /></th>
+<th  class="bgc" style="text-align: center;" pSortableColumn="STATUS"> 17<p-sortIcon   field="STATUS" style="color: white !important;" /></th>
  
 
     </tr> 
@@ -1510,6 +1534,7 @@
               <td style="white-space: normal; text-align:  left !important;">{{ obj.TRAINING_ID }}</td>
               <td style="white-space: normal; text-align:  center !important;">{{obj.TRAINING_DATE.substring(0, 10)  }}</td>
               <td style="text-align:  right !important;">{{obj.TRAINING_TIME}}</td>
+              <td style="white-space: normal; text-align:  left !important;">{{obj.MANDALNAME}}</td>
                <td style="white-space: normal; text-align:  left !important;">{{obj.VENU}}</td>
                 <td style="white-space: normal; text-align:  left !important;">{{obj.VILLAGES}}</td>
 
@@ -1523,7 +1548,7 @@
 
   <button  *ngIf="obj.ATND_PDF !== null && obj.ATND_PDF !== 'NA' &&  obj.ATND_PDF !== undefined "
     (click)="btnPdfView(obj.ATND_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> ATTENDANCE
 </button>
 
@@ -1532,7 +1557,7 @@
 
     <button *ngIf="obj.HONORARIUM_TA_BILL_PDF !== null && obj.HONORARIUM_TA_BILL_PDF !== 'NA' &&  obj.HONORARIUM_TA_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.HONORARIUM_TA_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> HONORARIUM TA BILL
 </button>
 
@@ -1542,7 +1567,7 @@
 
    <button *ngIf="obj.REFRESHMENT_BILL_PDF !== null && obj.REFRESHMENT_BILL_PDF !== 'NA' &&  obj.REFRESHMENT_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.REFRESHMENT_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> REFRESHMENT BILL
 </button>
  <br /><br /> 
@@ -1550,7 +1575,7 @@
 
   <button *ngIf="obj.STATIONARY_TRN_BILL_PDF !== null && obj.STATIONARY_TRN_BILL_PDF !== 'NA' &&  obj.STATIONARY_TRN_BILL_PDF !== undefined "
     (click)="btnPdfView(obj.STATIONARY_TRN_BILL_PDF)" 
-    style="background-color: #ffb700; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
+    style="background-color: #28a745; color: white; border: none; padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer;
     word-wrap: normal;">
     <i class="pi pi-file-pdf" style="margin-right: 5px;"></i> STATIONARY TRN BILL
 </button>
